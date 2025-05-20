@@ -76,3 +76,15 @@ function checkForRepeats(name) {
   }
 }
 
+function initMap() {
+  const mbc = { lat: 1.2766, lng: 103.7918 }; // Mapletree Business City
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 16,
+    center: mbc,
+  });
+  new google.maps.Marker({
+    position: mbc,
+    map: map,
+    title: "Lunch Spot!"
+  });
+}

@@ -30,12 +30,6 @@
     </div>
 
     <div class="filter-group">
-      <h3>Time</h3>
-      <label><input type="checkbox" value="quickbite" class="filter" data-type="time"> Quick Bite</label>
-      <label><input type="checkbox" value="shortqueue" class="filter" data-type="time"> Short Queue</label>
-    </div>
-
-    <div class="filter-group">
       <h3>Budget</h3>
       <label><input type="radio" name="budget" value="$" class="filter" data-type="budget"> $</label>
       <label><input type="radio" name="budget" value="$$" class="filter" data-type="budget"> $$</label>
@@ -62,5 +56,10 @@
 
   <script src="main.js"></script>
 </body>
-</html>
 
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>
+<div id="map" style="height: 300px;"></div>
+
+</html>
