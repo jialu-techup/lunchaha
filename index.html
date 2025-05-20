@@ -1,0 +1,28 @@
+<div class="filters">
+  <h3>Filters</h3>
+
+  <!-- Dietary Needs -->
+  <label><input type="checkbox" value="vegetarian" class="filter" data-type="diet"> Vegetarian</label>
+  <label><input type="checkbox" value="halal" class="filter" data-type="diet"> Halal</label>
+
+  <!-- Meal Base -->
+  <label><input type="checkbox" value="rice" class="filter" data-type="base"> Rice</label>
+  <label><input type="checkbox" value="noodles" class="filter" data-type="base"> Noodles</label>
+  <label><input type="checkbox" value="salad" class="filter" data-type="base"> Salad</label>
+
+  <!-- Time -->
+  <label><input type="checkbox" value="quickbite" class="filter" data-type="time"> Quick Bite</label>
+  <label><input type="checkbox" value="shortqueue" class="filter" data-type="time"> Short Queue</label>
+
+  <!-- Budget -->
+  <label><input type="radio" name="budget" value="$" class="filter" data-type="budget"> $
+  <label><input type="radio" name="budget" value="$$" class="filter" data-type="budget"> $$
+  <label><input type="radio" name="budget" value="$$$" class="filter" data-type="budget"> $$$
+
+  <!-- Good for Groups -->
+  <label><input type="checkbox" value="groups" class="filter" data-type="groups"> Good for Groups</label>
+</div>
+
+<button onclick="applyFilters()">Apply Filters</button>
+<button onclick="justPickForMe()">🎲 Just Pick For Me</button>
+
