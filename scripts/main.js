@@ -5,6 +5,7 @@ fetch('./data/meals.json')
   .then(data => {
     mealData = data;
     renderMeals(mealData);
+    renderHistory(); // Render history on load
   });
 
 function applyFilters() {
@@ -63,6 +64,7 @@ function trackMeal(name) {
   const history = JSON.parse(localStorage.getItem('mealHistory')) || [];
   history.push({ name, date: new Date().toISOString() });
   localStorage.setItem('mealHistory', JSON.stringify(history));
+  renderHistory();
 }
 
 function checkForRepeats(name) {
@@ -76,6 +78,50 @@ function checkForRepeats(name) {
   }
 }
 
+function renderHistory() {
+  const historyContent = document.getElementById('history-content');
+  if (!historyContent) return;
+
+  const history = JSON.parse(localStorage.getItem('mealHistory')) || [];
+  const recentMeals = history
+    .filter(h => (new Date() - new Date(h.date)) < 7 * 24 * 60 * 60 * 1000)
+    .map(h => `<li>${h.name} – ${new Date(h.date).toLocaleDateString()}</li>`)
+    .reverse()
+    .slice(0, 5);
+
+  historyContent.innerHTML = `
+    <ul>${recentMeals.length > 0 ? recentMeals.join('') : '<li>No meals tracked yet.</li>'}</ul>
+    ${suggestVarietyTip(history)}
+  `;
+}
+
+function suggestVarietyTip(history) {
+  const counts = {};
+  history.forEach(entry => {
+    const day = entry.name;
+    counts[day] = (counts[day] || 0) + 1;
+  });
+
+  const repeated = Object.entries(counts).filter(([_, count]) => count >= 3);
+  if (repeated.length > 0) {
+    return `<p>Reminder: You’ve had <strong>${repeated[0][0]}</strong> ${repeated[0][1]} times recently. Try something new tomorrow!</p>`;
+  }
+  return '';
+}
+
+// Toggle history section
+document.addEventListener('DOMContentLoaded', () => {
+  const historyToggle = document.getElementById('history-toggle');
+  const historyContent = document.getElementById('history-content');
+
+  if (historyToggle && historyContent) {
+    historyToggle.addEventListener('click', () => {
+      historyContent.style.display = historyContent.style.display === 'none' ? 'block' : 'none';
+    });
+  }
+});
+
+// Google Map Init
 function initMap() {
   const mbc = { lat: 1.2766, lng: 103.7918 }; // Mapletree Business City
   const map = new google.maps.Map(document.getElementById("map"), {
@@ -88,3 +134,5 @@ function initMap() {
     title: "Lunch Spot!"
   });
 }
+
+console.log("JS file is successfully linked!");

@@ -5,6 +5,7 @@
     "description": "Authentic Hunan-style handmade rice noodles — enjoy them dry or in a hearty soup, packed with bold, spicy flavors.",
     "diet": ["vegetarian","halal"],
     "base": ["noodles"],
+    "crave mood":"spicy",
     "price": "$",
     "image": "assets/images/sofun3.jpg",
     "location": "Alexandra Retail Centre (ARC) #01-01",
@@ -18,6 +19,7 @@
     "diet": ["vegetarian", "vegan"],
     "base": ["salad"],
     "price": "$$",
+    "crave mood":["crispy"],
     "image": "assets/images/thegreenbar.jpg",
     "location": "Alexandra Retail Centre (ARC) #02-12",
     "mapLink": "https://g.co/kgs/kaQp5rc",
@@ -29,11 +31,26 @@
     "name": "McDonald's ARC",
     "description": "Classic, long-running fast-food chain known for its burgers & fries.",
     "diet": [],
-    "base": ["Others"],
+    "base": ["bread/wraps"],
     "price": "$",
+    "crave mood":["crispy"],
     "image": "assets/images/mcdonalds.jpg",
     "location": "Alexandra Retail Centre (ARC) #01-25",
     "mapLink": "https://g.co/kgs/i3dWyEd",
     "rating": 4.2
+  }
+
+      {
+    "id": 4,
+    "name": "Sakana-No-Suppu",
+    "description": "Be ready to enjoy the simple full-bodied soup accompanied by the rich texture of our fish and seafood we are going to serve.",
+    "diet": [],
+    "base": ["rice", "noodles"],
+    "price": "$$",
+    "crave mood":["soupy"],
+    "image": "assets/images/sakana.jpg",
+    "location": "Alexandra Retail Centre (ARC) #02-42",
+    "mapLink": "https://g.co/kgs/huzwYdY",
+    "rating": 4.8
   }
 ]

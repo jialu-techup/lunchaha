@@ -59,7 +59,7 @@ header p {
 
 .filter-guide h2 {
   text-align: center;
-  color: #d17b00;
+  color: #995a01;
 }
 
 .filter-guide ul {
@@ -75,7 +75,7 @@ header p {
 
 /* Filters Section */
 .filters {
-  background: #f14f04;
+  background: #A5BE00;
   padding: 15px;
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
