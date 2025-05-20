@@ -5,28 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lunch? Aha!</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
   <header>
     <h1>🥗 Lunch? Aha!</h1>
-    <p>Discover your next bite at Mapletree Business City</p>
+    <p><em>Your personal lunch companion</em></p>
+    <p>Helping busy professionals at Mapletree Business City quickly decide what to eat—without the stress.</p>
   </header>
 
+  <!-- ✨ Welcome Section / Purpose -->
+  <section class="intro">
+    <h2>Welcome to Lunch? Aha!</h2>
+    <p>This app is designed for professionals who want to save time, avoid decision fatigue, and enjoy delicious variety at lunch. Just set your mood, preferences, and cravings — and we’ll suggest the best options nearby.</p>
+  </section>
+
+  <!-- 🔍 Filter Guide Section -->
+  <section class="filter-guide">
+    <h2>Filter Guide 🍽️</h2>
+    <ul>
+      <li><strong>🥗 Dietary Needs:</strong> Vegetarian, Halal, Gluten-Free, etc.</li>
+      <li><strong>🍚 Meal Base:</strong> Rice, Noodles, Bread/Wraps, Salad</li>
+      <li><strong>💸 Budget:</strong> $, $$, $$$</li>
+      <li><strong>🔥 Crave Mode:</strong> Spicy, Sweet, Soupy, Crispy, Sour</li>
+    </ul>
+  </section>
+
+  <!-- 🍱 Daily Picks Carousel -->
+  <section class="carousel" id="daily-carousel">
+    <h2>✨ Aha! Picks for Today</h2>
+    <div class="carousel-track" id="carousel-track"></div>
+    <button class="carousel-btn left" onclick="scrollCarousel(-1)">&#10094;</button>
+    <button class="carousel-btn right" onclick="scrollCarousel(1)">&#10095;</button>
+  </section>
+
+  <!-- 🧠 Filters Section -->
   <section class="filters">
     <h2>Filter Your Cravings 🍱</h2>
 
     <div class="filter-group">
       <h3>Dietary Needs</h3>
       <label><input type="checkbox" value="vegetarian" class="filter" data-type="diet"> Vegetarian</label>
+      <label><input type="checkbox" value="vegan" class="filter" data-type="diet"> Vegan</label>
       <label><input type="checkbox" value="halal" class="filter" data-type="diet"> Halal</label>
+      <label><input type="checkbox" value="Gluten-Free" class="filter" data-type="diet"> Gluten-Free</label>
+      <label><input type="checkbox" value="Lactose-Free" class="filter" data-type="diet"> Lactose-Free</label>
     </div>
 
     <div class="filter-group">
       <h3>Meal Base</h3>
-      <label><input type="checkbox" value="rice" class="filter" data-type="base"> Rice</label>
-      <label><input type="checkbox" value="noodles" class="filter" data-type="base"> Noodles</label>
-      <label><input type="checkbox" value="salad" class="filter" data-type="base"> Salad</label>
-      <label><input type="checkbox" value="Others" class="filter" data-type="base"> Others</label>
+      <label><input type="checkbox" value="rice" class="filter" data-type="base"> 🍚Rice</label>
+      <label><input type="checkbox" value="noodles" class="filter" data-type="base"> 🍜Noodles</label>
+      <label><input type="checkbox" value="Bread/Wraps" class="filter" data-type="base"> 🥪Bread/Wraps</label>
+      <label><input type="checkbox" value="salad" class="filter" data-type="base"> 🥗Salad</label>
     </div>
 
     <div class="filter-group">
@@ -36,9 +70,13 @@
       <label><input type="radio" name="budget" value="$$$" class="filter" data-type="budget"> $$$</label>
     </div>
 
-    <div class="filter-group">
-      <h3>Others</h3>
-      <label><input type="checkbox" value="groups" class="filter" data-type="groups"> Good for Groups</label>
+    <div class="filter-group crave-mode">
+      <h3>Crave Mode</h3>
+      <label><input type="checkbox" value="Spicy" class="filter" data-type="crave"> 🌶️ Spicy</label>
+      <label><input type="checkbox" value="Soupy" class="filter" data-type="crave"> 🍲 Soupy</label>
+      <label><input type="checkbox" value="Sweet" class="filter" data-type="crave"> 🍯 Sweet</label>
+      <label><input type="checkbox" value="Sour" class="filter" data-type="crave"> 🍋 Sour</label>
+      <label><input type="checkbox" value="Crispy" class="filter" data-type="crave"> 🍗 Crispy</label>
     </div>
 
     <div class="buttons">
@@ -47,19 +85,47 @@
     </div>
   </section>
 
-  <section id="meal-container" class="meal-container"></section>
+  <!-- 🗂️ Collapsible Meal History -->
+  <section class="meal-history">
+    <h2 onclick="toggleHistory()">📅 Meal History <span id="toggle-icon">▼</span></h2>
+    <div id="history-content" style="display:none;">
+      <ul id="meal-log">
+        <li>Mon: Chicken Rice 🍗</li>
+        <li>Tue: Vegetarian Salad 🥗</li>
+        <li>Wed: Laksa 🍜</li>
+        <li>Thu: Mala Hotpot 🌶️</li>
+        <li>Fri: Sushi Bento 🍣</li>
+      </ul>
+      <p><em>Tip:</em> You’ve had spicy 3 times this week — maybe try something refreshing today!</p>
+    </div>
+  </section>
 
+  <!-- 🗺️ Google Map -->
   <iframe
     src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Mapletree+Business+City"
     width="100%" height="250" allowfullscreen loading="lazy">
   </iframe>
 
+  <div id="map" style="height: 300px;"></div>
+
   <script src="main.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+  </script>
+
+  <script>
+    function toggleHistory() {
+      const history = document.getElementById("history-content");
+      const icon = document.getElementById("toggle-icon");
+      if (history.style.display === "none") {
+        history.style.display = "block";
+        icon.textContent = "▲";
+      } else {
+        history.style.display = "none";
+        icon.textContent = "▼";
+      }
+    }
+  </script>
+
 </body>
-
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-</script>
-<div id="map" style="height: 300px;"></div>
-
 </html>
