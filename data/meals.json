@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "name": "SO FUN3",
+    "description": "Authentic Hunan-style handmade rice noodles — enjoy them dry or in a hearty soup, packed with bold, spicy flavors.",
+    "diet": ["vegetarian","halal"],
+    "base": ["noodles"],
+    "price": "$",
+    "time": ["shortqueue"],
+    "image": "assets/images/sofun3.jpg",
+    "location": "Alexandra Retail Centre (ARC) #01-01",
+    "mapLink": "https://g.co/kgs/qF1hXJb",
+    "rating": 4.7
+  },
+  {
+    "id": 2,
+    "name": "The Green Bar",
+    "description": "Our very own collection of fresh mouthwatering honest-to-goodness, well crafted gourmet superfood salad recipes for all to enjoy",
+    "diet": ["vegetarian", "vegan"],
+    "base": ["salad"],
+    "price": "$$",
+    "image": "assets/images/thegreenbar.jpg",
+    "location": "Alexandra Retail Centre (ARC) #02-12",
+    "mapLink": "https://g.co/kgs/kaQp5rc",
+    "rating": 4.3
+  }
+
+    {
+    "id": 3,
+    "name": "McDonald's ARC",
+    "description": "Classic, long-running fast-food chain known for its burgers & fries.",
+    "diet": [],
+    "base": ["Others"],
+    "price": "$",
+    "time": [ "shortqueue"],
+    "image": "assets/images/mcdonalds.jpg",
+    "location": "Alexandra Retail Centre (ARC) #01-25",
+    "mapLink": "https://g.co/kgs/i3dWyEd",
+    "rating": 4.2
+  }
+]

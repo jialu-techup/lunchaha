@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fffefc;
+  color: #333;
+  padding: 10px;
+}
+
+header {
+  text-align: center;
+  padding: 10px;
+  background: #ffecd1;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.filters {
+  background: #fff7f0;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+.filter-group {
+  margin-bottom: 15px;
+}
+
+.filter-group h3 {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #d17b00;
+}
+
+.filters label {
+  display: block;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.buttons button {
+  margin: 8px 5px;
+  padding: 10px 15px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  background-color: #ffb347;
+  color: white;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background-color: #ff944d;
+}
+
+.meal-container {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+.meal-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+  padding: 10px;
+  text-align: center;
+}
+
+.meal-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.pickup-btn {
+  margin-top: 8px;
+  padding: 8px;
+  background: #00c896;
+  border: none;
+  color: white;
+  border-radius: 6px;
+}
+

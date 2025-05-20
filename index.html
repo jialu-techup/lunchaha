@@ -1,28 +1,66 @@
-<div class="filters">
-  <h3>Filters</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lunch? Aha!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🥗 Lunch? Aha!</h1>
+    <p>Discover your next bite at Mapletree Business City</p>
+  </header>
 
-  <!-- Dietary Needs -->
-  <label><input type="checkbox" value="vegetarian" class="filter" data-type="diet"> Vegetarian</label>
-  <label><input type="checkbox" value="halal" class="filter" data-type="diet"> Halal</label>
+  <section class="filters">
+    <h2>Filter Your Cravings 🍱</h2>
 
-  <!-- Meal Base -->
-  <label><input type="checkbox" value="rice" class="filter" data-type="base"> Rice</label>
-  <label><input type="checkbox" value="noodles" class="filter" data-type="base"> Noodles</label>
-  <label><input type="checkbox" value="salad" class="filter" data-type="base"> Salad</label>
+    <div class="filter-group">
+      <h3>Dietary Needs</h3>
+      <label><input type="checkbox" value="vegetarian" class="filter" data-type="diet"> Vegetarian</label>
+      <label><input type="checkbox" value="halal" class="filter" data-type="diet"> Halal</label>
+    </div>
 
-  <!-- Time -->
-  <label><input type="checkbox" value="quickbite" class="filter" data-type="time"> Quick Bite</label>
-  <label><input type="checkbox" value="shortqueue" class="filter" data-type="time"> Short Queue</label>
+    <div class="filter-group">
+      <h3>Meal Base</h3>
+      <label><input type="checkbox" value="rice" class="filter" data-type="base"> Rice</label>
+      <label><input type="checkbox" value="noodles" class="filter" data-type="base"> Noodles</label>
+      <label><input type="checkbox" value="salad" class="filter" data-type="base"> Salad</label>
+      <label><input type="checkbox" value="Others" class="filter" data-type="base"> Others</label>
+    </div>
 
-  <!-- Budget -->
-  <label><input type="radio" name="budget" value="$" class="filter" data-type="budget"> $
-  <label><input type="radio" name="budget" value="$$" class="filter" data-type="budget"> $$
-  <label><input type="radio" name="budget" value="$$$" class="filter" data-type="budget"> $$$
+    <div class="filter-group">
+      <h3>Time</h3>
+      <label><input type="checkbox" value="quickbite" class="filter" data-type="time"> Quick Bite</label>
+      <label><input type="checkbox" value="shortqueue" class="filter" data-type="time"> Short Queue</label>
+    </div>
 
-  <!-- Good for Groups -->
-  <label><input type="checkbox" value="groups" class="filter" data-type="groups"> Good for Groups</label>
-</div>
+    <div class="filter-group">
+      <h3>Budget</h3>
+      <label><input type="radio" name="budget" value="$" class="filter" data-type="budget"> $</label>
+      <label><input type="radio" name="budget" value="$$" class="filter" data-type="budget"> $$</label>
+      <label><input type="radio" name="budget" value="$$$" class="filter" data-type="budget"> $$$</label>
+    </div>
 
-<button onclick="applyFilters()">Apply Filters</button>
-<button onclick="justPickForMe()">🎲 Just Pick For Me</button>
+    <div class="filter-group">
+      <h3>Others</h3>
+      <label><input type="checkbox" value="groups" class="filter" data-type="groups"> Good for Groups</label>
+    </div>
+
+    <div class="buttons">
+      <button onclick="applyFilters()">🔍 Apply Filters</button>
+      <button onclick="justPickForMe()">🎲 Just Pick For Me</button>
+    </div>
+  </section>
+
+  <section id="meal-container" class="meal-container"></section>
+
+  <iframe
+    src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Mapletree+Business+City"
+    width="100%" height="250" allowfullscreen loading="lazy">
+  </iframe>
+
+  <script src="main.js"></script>
+</body>
+</html>
 
