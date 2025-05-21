@@ -3,6 +3,7 @@ let mealData = [];
 fetch('./data/meals.json')
   .then(res => res.json())
   .then(data => {
+    console.log("loading meals data")
     mealData = data;
     renderMeals(mealData);
     renderHistory(); // Render history on load
@@ -38,20 +39,32 @@ function justPickForMe() {
 function renderMeals(meals) {
   const container = document.getElementById('meal-container');
   container.innerHTML = '';
+
   meals.forEach(meal => {
     container.innerHTML += `
       <div class="meal-card">
-        <img src="${meal.image}" alt="${meal.name}">
+        <div class="image-wrapper">
+          <img src="${meal.image}" alt="${meal.name}">
+          <span class="tag-pill top-left">${meal.base?.[0] || ''}</span>
+          <span class="tag-pill top-right">${meal.crave?.[0] || ''}</span>
+          <span class="tag-pill bottom-left">${meal.diet?.[0] || ''}</span>
+          <span class="tag-pill bottom-right">${meal.budget || ''}</span>
+        </div>
         <h4>${meal.name}</h4>
         <p>${meal.description}</p>
-        <button class="pickup-btn" onclick="alert('Redirecting to order page for ${meal.name}...')">Order & Pick Up</button>
+        <button class="pickup-btn" onclick="handleOrder('${meal.name}')">Order & Pick Up</button>
         <button onclick="shareMeal('${meal.name}')">📤 Share</button>
       </div>
     `;
-    trackMeal(meal.name);
-    checkForRepeats(meal.name);
   });
 }
+
+function handleOrder(name) {
+  alert(`Redirecting to order page for ${name}...`);
+  trackMeal(name);
+  checkForRepeats(name);
+}
+
 
 function shareMeal(name) {
   const shareURL = `https://lunch-aha-app.com/?meal=${encodeURIComponent(name)}`;
@@ -136,3 +149,81 @@ function initMap() {
 }
 
 console.log("JS file is successfully linked!");
+
+function toggleSubFilter(type) {
+  const sections = ['diet', 'base', 'crave', 'budget'];
+  sections.forEach(section => {
+    const el = document.getElementById(`${section}-filters`);
+    if (section === type) {
+      el.style.display = el.style.display === 'none' ? 'block' : 'none';
+    } else {
+      el.style.display = 'none';
+    }
+  });
+}
+
+function applySingleFilter(type, value) {
+  const filtered = mealData.filter(meal => {
+    const field = meal[type];
+    if (Array.isArray(field)) {
+      return field.includes(value);
+    } else {
+      return field === value;
+    }
+  });
+  renderMeals(filtered);
+}
+
+
+// Store selected sub-filter
+let selectedSubFilter = null;
+
+// Event delegation: Listen for clicks on all sub-filter buttons
+document.querySelectorAll('.sub-filters button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Toggle selection
+    if (selectedSubFilter === btn.dataset.value) {
+      selectedSubFilter = null;
+      btn.classList.remove('active');
+    } else {
+      document.querySelectorAll('.sub-filters button').forEach(b => b.classList.remove('active'));
+      selectedSubFilter = btn.dataset.value;
+      btn.classList.add('active');
+    }
+
+    // Filter meals and render
+    if (selectedSubFilter) {
+      const filtered = mealData.filter(meal =>
+        meal.diet?.includes(selectedSubFilter) ||
+        meal.base?.includes(selectedSubFilter) ||
+        meal.crave?.includes(selectedSubFilter) ||
+        meal.budget === selectedSubFilter
+      );
+      renderMeals(filtered);
+    } else {
+      renderMeals(mealData); // Show all meals if none selected
+    }
+  });
+});
+
+function renderMeals(meals) {
+  const container = document.getElementById('meal-container');
+  container.innerHTML = '';
+
+  if (meals.length === 0) {
+    container.innerHTML = `<p>No meals found. Try a different filter!</p>`;
+    return;
+  }
+
+  meals.forEach(meal => {
+    container.innerHTML += `
+      <div class="meal-card">
+        <img src="${meal.image}" alt="${meal.name}">
+        <h4>${meal.name}</h4>
+        <p>${meal.description}</p>
+        <button class="pickup-btn" onclick="alert('Ordering ${meal.name}...')">Order & Pick Up</button>
+        <button onclick="shareMeal('${meal.name}')">📤 Share</button>
+      </div>
+    `;
+  });
+}

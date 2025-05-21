@@ -14,14 +14,17 @@
   <header>
     <h1>🥗 Lunch? Aha!</h1>
     <p><em>Your personal lunch companion</em></p>
-    <p>Helping busy professionals at Mapletree Business City quickly decide what to eat—without the stress.</p>
   </header>
 
   <!-- ✨ Welcome Section / Purpose -->
   <section class="intro">
-    <h2>Welcome to Lunch? Aha!</h2>
-    <p>This app is designed for professionals who want to save time, avoid decision fatigue, and enjoy delicious variety at lunch. Just set your mood, preferences, and cravings — and we’ll suggest the best options nearby.</p>
+    <h2>🍴 Too hungry to think? Let us do the picking!</h2>
+    <p>Welcome to Lunch? Aha! — your lunchtime lifesaver at Mapletree Business City. Whether you're craving something spicy, soupy, or satisfying (but not the same chicken rice again), we’ve got you covered. Just tell us your mood, preferences, and cravings — and we’ll serve up the tastiest nearby picks. Say goodbye to lunch stress and hello to delicious variety!</p>
+    <div class="buttons">
+      <button onclick="Findlunch">Find Today's Lunch 🍽️</button>
+    </div>
   </section>
+
 
   <!-- 🔍 Filter Guide Section -->
   <section class="filter-guide">
@@ -41,49 +44,52 @@
     <button class="carousel-btn left" onclick="scrollCarousel(-1)">&#10094;</button>
     <button class="carousel-btn right" onclick="scrollCarousel(1)">&#10095;</button>
   </section>
+<section class="filters">
+  <h2>Filter Your Cravings 🍱</h2>
 
-  <!-- 🧠 Filters Section -->
-  <section class="filters">
-    <h2>Filter Your Cravings 🍱</h2>
+  <!-- Primary Filter Buttons -->
+  <div class="primary-filters">
+    <button onclick="toggleSubFilter('diet')">🥗 Dietary Needs</button>
+    <button onclick="toggleSubFilter('base')">🍚 Meal Base</button>
+    <button onclick="toggleSubFilter('crave')">🔥 Crave Mode</button>
+    <button onclick="toggleSubFilter('budget')">💸 Budget</button>
+  </div>
 
-    <div class="filter-group">
-      <h3>Dietary Needs</h3>
-      <label><input type="checkbox" value="vegetarian" class="filter" data-type="diet"> Vegetarian</label>
-      <label><input type="checkbox" value="vegan" class="filter" data-type="diet"> Vegan</label>
-      <label><input type="checkbox" value="halal" class="filter" data-type="diet"> Halal</label>
-      <label><input type="checkbox" value="Gluten-Free" class="filter" data-type="diet"> Gluten-Free</label>
-      <label><input type="checkbox" value="Lactose-Free" class="filter" data-type="diet"> Lactose-Free</label>
-    </div>
+  <!-- Subcategory Filter Buttons -->
+  <div class="sub-filters" id="diet-filters" style="display: none;">
+    <button onclick="applySingleFilter('diet', 'vegetarian')">Vegetarian</button>
+    <button onclick="applySingleFilter('diet', 'vegan')">Vegan</button>
+    <button onclick="applySingleFilter('diet', 'halal')">Halal</button>
+    <button onclick="applySingleFilter('diet', 'Gluten-Free')">Gluten-Free</button>
+    <button onclick="applySingleFilter('diet', 'Lactose-Free')">Lactose-Free</button>
+  </div>
 
-    <div class="filter-group">
-      <h3>Meal Base</h3>
-      <label><input type="checkbox" value="rice" class="filter" data-type="base"> 🍚Rice</label>
-      <label><input type="checkbox" value="noodles" class="filter" data-type="base"> 🍜Noodles</label>
-      <label><input type="checkbox" value="Bread/Wraps" class="filter" data-type="base"> 🥪Bread/Wraps</label>
-      <label><input type="checkbox" value="salad" class="filter" data-type="base"> 🥗Salad</label>
-    </div>
+  <div class="sub-filters" id="base-filters" style="display: none;">
+    <button onclick="applySingleFilter('base', 'rice')">🍚 Rice</button>
+    <button onclick="applySingleFilter('base', 'noodles')">🍜 Noodles</button>
+    <button onclick="applySingleFilter('base', 'Bread/Wraps')">🥪 Bread/Wraps</button>
+    <button onclick="applySingleFilter('base', 'salad')">🥗 Salad</button>
+  </div>
 
-    <div class="filter-group">
-      <h3>Budget</h3>
-      <label><input type="radio" name="budget" value="$" class="filter" data-type="budget"> $</label>
-      <label><input type="radio" name="budget" value="$$" class="filter" data-type="budget"> $$</label>
-      <label><input type="radio" name="budget" value="$$$" class="filter" data-type="budget"> $$$</label>
-    </div>
+  <div class="sub-filters" id="crave-filters" style="display: none;">
+    <button onclick="applySingleFilter('crave', 'Spicy')">🌶️ Spicy</button>
+    <button onclick="applySingleFilter('crave', 'Soupy')">🍲 Soupy</button>
+    <button onclick="applySingleFilter('crave', 'Sweet')">🍯 Sweet</button>
+    <button onclick="applySingleFilter('crave', 'Sour')">🍋 Sour</button>
+    <button onclick="applySingleFilter('crave', 'Crispy')">🍗 Crispy</button>
+  </div>
 
-    <div class="filter-group crave-mode">
-      <h3>Crave Mode</h3>
-      <label><input type="checkbox" value="Spicy" class="filter" data-type="crave"> 🌶️ Spicy</label>
-      <label><input type="checkbox" value="Soupy" class="filter" data-type="crave"> 🍲 Soupy</label>
-      <label><input type="checkbox" value="Sweet" class="filter" data-type="crave"> 🍯 Sweet</label>
-      <label><input type="checkbox" value="Sour" class="filter" data-type="crave"> 🍋 Sour</label>
-      <label><input type="checkbox" value="Crispy" class="filter" data-type="crave"> 🍗 Crispy</label>
-    </div>
+  <div class="sub-filters" id="budget-filters" style="display: none;">
+    <button onclick="applySingleFilter('budget', '$')">$</button>
+    <button onclick="applySingleFilter('budget', '$$')">$$</button>
+    <button onclick="applySingleFilter('budget', '$$$')">$$$</button>
+  </div>
 
-    <div class="buttons">
-      <button onclick="applyFilters()">🔍 Apply Filters</button>
-      <button onclick="justPickForMe()">🎲 Just Pick For Me</button>
-    </div>
-  </section>
+  <div class="buttons">
+    <button onclick="justPickForMe()">🎲 Just Pick For Me</button>
+  </div>
+</section>
+
 
   <!-- 🗂️ Collapsible Meal History -->
   <section class="meal-history">
@@ -107,6 +113,7 @@
   </iframe>
 
   <div id="map" style="height: 300px;"></div>
+  <div id="meal-container" style="height: 300px;"></div>
 
   <script src="scripts/main.js"></script>
   <script async defer

@@ -7,7 +7,7 @@
     "base": ["noodles"],
     "crave mood":"spicy",
     "price": "$",
-    "image": "assets/images/sofun3.jpg",
+    "image": "assets/images/icons/sofun3.jpg",
     "location": "Alexandra Retail Centre (ARC) #01-01",
     "mapLink": "https://g.co/kgs/qF1hXJb",
     "rating": 4.7
@@ -20,11 +20,11 @@
     "base": ["salad"],
     "price": "$$",
     "crave mood":["crispy"],
-    "image": "assets/images/thegreenbar.jpg",
+    "image": "assets/images/icons/thegreenbar.jpg",
     "location": "Alexandra Retail Centre (ARC) #02-12",
     "mapLink": "https://g.co/kgs/kaQp5rc",
     "rating": 4.3
-  }
+  },
 
     {
     "id": 3,
@@ -34,11 +34,11 @@
     "base": ["bread/wraps"],
     "price": "$",
     "crave mood":["crispy"],
-    "image": "assets/images/mcdonalds.jpg",
+    "image": "assets/images/icons/mcdonalds.jpg",
     "location": "Alexandra Retail Centre (ARC) #01-25",
     "mapLink": "https://g.co/kgs/i3dWyEd",
     "rating": 4.2
-  }
+  },
 
       {
     "id": 4,
@@ -48,7 +48,7 @@
     "base": ["rice", "noodles"],
     "price": "$$",
     "crave mood":["soupy"],
-    "image": "assets/images/sakana.jpg",
+    "image": "assets/images/icons/sakana.jpg",
     "location": "Alexandra Retail Centre (ARC) #02-42",
     "mapLink": "https://g.co/kgs/huzwYdY",
     "rating": 4.8
