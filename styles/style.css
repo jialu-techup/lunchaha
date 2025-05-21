@@ -361,3 +361,20 @@ iframe {
   animation: fadeInUp 0.5s ease forwards;
   opacity: 0; /* Start hidden until animation completes */
 }
+
+/* find today's lunch button */
+.intro-button {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.primary-cta {
+  background-color: #ff944d;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}

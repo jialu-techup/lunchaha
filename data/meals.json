@@ -4,8 +4,8 @@
     "name": "SO FUN3",
     "description": "Authentic Hunan-style handmade rice noodles — enjoy them dry or in a hearty soup, packed with bold, spicy flavors.",
     "diet": ["vegetarian","halal"],
-    "base": ["noodles"],
-    "crave mood":"spicy",
+    "base": ["noodles","rice"],
+    "crave mood":["spicy","soupy"],
     "price": "$",
     "image": "assets/images/icons/sofun3.jpg",
     "location": "Alexandra Retail Centre (ARC) #01-01",
@@ -17,7 +17,7 @@
     "name": "The Green Bar",
     "description": "Our very own collection of fresh mouthwatering honest-to-goodness, well crafted gourmet superfood salad recipes for all to enjoy",
     "diet": ["vegetarian", "vegan"],
-    "base": ["salad"],
+    "base": ["salad", "bread/wraps"],
     "price": "$$",
     "crave mood":["crispy"],
     "image": "assets/images/icons/thegreenbar.jpg",
@@ -54,3 +54,4 @@
     "rating": 4.8
   }
 ]
+

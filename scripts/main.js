@@ -36,29 +36,6 @@ function justPickForMe() {
   checkForRepeats(random.name);
 }
 
-function renderMeals(meals) {
-  const container = document.getElementById('meal-container');
-  container.innerHTML = '';
-
-  meals.forEach(meal => {
-    container.innerHTML += `
-      <div class="meal-card">
-        <div class="image-wrapper">
-          <img src="${meal.image}" alt="${meal.name}">
-          <span class="tag-pill top-left">${meal.base?.[0] || ''}</span>
-          <span class="tag-pill top-right">${meal.crave?.[0] || ''}</span>
-          <span class="tag-pill bottom-left">${meal.diet?.[0] || ''}</span>
-          <span class="tag-pill bottom-right">${meal.budget || ''}</span>
-        </div>
-        <h4>${meal.name}</h4>
-        <p>${meal.description}</p>
-        <button class="pickup-btn" onclick="handleOrder('${meal.name}')">Order & Pick Up</button>
-        <button onclick="shareMeal('${meal.name}')">📤 Share</button>
-      </div>
-    `;
-  });
-}
-
 function handleOrder(name) {
   alert(`Redirecting to order page for ${name}...`);
   trackMeal(name);
@@ -173,38 +150,6 @@ function applySingleFilter(type, value) {
   });
   renderMeals(filtered);
 }
-
-
-// Store selected sub-filter
-let selectedSubFilter = null;
-
-// Event delegation: Listen for clicks on all sub-filter buttons
-document.querySelectorAll('.sub-filters button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    // Toggle selection
-    if (selectedSubFilter === btn.dataset.value) {
-      selectedSubFilter = null;
-      btn.classList.remove('active');
-    } else {
-      document.querySelectorAll('.sub-filters button').forEach(b => b.classList.remove('active'));
-      selectedSubFilter = btn.dataset.value;
-      btn.classList.add('active');
-    }
-
-    // Filter meals and render
-    if (selectedSubFilter) {
-      const filtered = mealData.filter(meal =>
-        meal.diet?.includes(selectedSubFilter) ||
-        meal.base?.includes(selectedSubFilter) ||
-        meal.crave?.includes(selectedSubFilter) ||
-        meal.budget === selectedSubFilter
-      );
-      renderMeals(filtered);
-    } else {
-      renderMeals(mealData); // Show all meals if none selected
-    }
-  });
-});
 
 function renderMeals(meals) {
   const container = document.getElementById('meal-container');
