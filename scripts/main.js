@@ -24,17 +24,52 @@ function applyFilters() {
       return filters[type].some(value => meal[type]?.includes(value));
     });
   });
-
   renderMeals(filteredMeals);
 }
 
-function justPickForMe() {
+/*function justPickForMe() {
   const random = mealData[Math.floor(Math.random() * mealData.length)];
   alert(`Try this today: ${random.name}`);
   renderMeals([random]);
   trackMeal(random.name);
   checkForRepeats(random.name);
+} */
+
+  function justPickForMe() {
+  const shuffleDuration = 2000; // 2 seconds
+  const intervalTime = 100;
+  let elapsed = 0;
+  let interval;
+
+  const container = document.getElementById('meal-container');
+  container.innerHTML = '<p>🔄 Finding your perfect lunch match...</p>';
+
+  interval = setInterval(() => {
+    const random = mealData[Math.floor(Math.random() * mealData.length)];
+    renderMeals([random]);
+
+    // Add shuffle animation class
+    setTimeout(() => {
+      const card = document.querySelector('.meal-card');
+      if (card) {
+        card.classList.add('shuffle-animation');
+        // Remove class after animation so it can re-trigger on next render
+        setTimeout(() => card.classList.remove('shuffle-animation'), 300);
+      }
+    }, 10); // Wait until DOM updates
+
+    elapsed += intervalTime;
+    if (elapsed >= shuffleDuration) {
+      clearInterval(interval);
+      const finalPick = mealData[Math.floor(Math.random() * mealData.length)];
+      renderMeals([finalPick]);
+      alert(`🎉 Try this today: ${finalPick.name}`);
+      trackMeal(finalPick.name);
+      checkForRepeats(finalPick.name);
+    }
+  }, intervalTime);
 }
+
 
 function handleOrder(name) {
   alert(`Redirecting to order page for ${name}...`);
@@ -160,10 +195,32 @@ function renderMeals(meals) {
     return;
   }
 
-  meals.forEach(meal => {
-    container.innerHTML += `
-      <div class="meal-card">
+meals.forEach(meal => {
+  const tagCraveHTML = (meal["crave"] || []).map(tag =>
+    `<span class="tag-pill tag-${tag.toLowerCase().replace(/\s+/g, '')}">${tag}</span>`
+  ).join('');
+
+  const tagBaseHTML = (meal.base || []).map(tag =>
+    `<span class="tag-pill tag-${tag.toLowerCase().replace(/\s+/g, '')}">${tag}</span>`
+  ).join('');
+
+  const tagDietHTML = (meal.diet || []).map(tag =>
+    `<span class="tag-pill tag-${tag.toLowerCase().replace(/\s+/g, '')}">${tag}</span>`
+  ).join('');
+
+  const tagBudgetHTML = [`${meal.budget}`].map(tag =>
+    `<span class="tag-pill tag-${tag.toLowerCase().replace(/\s+/g, '')}">${tag}</span>`
+  ).join('');
+
+  container.innerHTML += `
+    <div class="meal-card">
+      <div class="image-wrapper">
         <img src="${meal.image}" alt="${meal.name}">
+        <div class="tag-overlay top-left">${tagBaseHTML}</div>
+        <div class="tag-overlay bottom-right">${tagBudgetHTML}</div>
+        <div class="tag-overlay bottom-left">${tagCraveHTML}</div>
+        <div class="tag-overlay top-right">${tagDietHTML}</div>
+      </div>
         <h4>${meal.name}</h4>
         <p>${meal.description}</p>
         <button class="pickup-btn" onclick="alert('Ordering ${meal.name}...')">Order & Pick Up</button>

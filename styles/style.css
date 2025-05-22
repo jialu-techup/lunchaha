@@ -166,9 +166,10 @@ header p {
 }
 
 .meal-card img {
-  width: 100%;
+  width: 80%;
   border-radius: 10px;
   margin-bottom: 10px;
+  display: block;
 }
 
 .pickup-btn {
@@ -267,8 +268,11 @@ iframe {
 
 .image-wrapper {
   position: relative;
+  width: 85%;
+  margin: 0 auto; /* ✅ This centers it horizontally */
   border-radius: 8px;
   overflow: hidden;
+  display: block; /* Ensures block-level element behavior */
 }
 
 .image-wrapper img {
@@ -277,37 +281,109 @@ iframe {
   border-radius: 8px;
 }
 
-/* General pill style */
-.tag-pill {
+.tag-overlay {
   position: absolute;
-  background-color: rgba(255, 102, 0, 0.9);
-  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Tag Overlay Container */
+.tag-overlay {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: 100%;
+  z-index: 2;
+}
+
+/* General Pill Style */
+.tag-pill {
+  position: relative; /* Keep it non-absolute if it's inside a flex container */
+  background-color: rgba(255, 102, 0, 0.8); /* Orange background with 80% opacity */
+  color: rgb(253, 253, 253);
   font-size: 0.7rem;
   padding: 4px 8px;
   border-radius: 12px;
   font-weight: bold;
   white-space: nowrap;
+  border: 1.5px solid rgba(255, 68, 0, 0.787); /* Red outline */
 }
 
-/* Positioning for each corner */
+/* Example color variations for different tags */
+.tag-vegetarian {
+  background-color: #4CAF50; /* green */
+  border-color: #388E3C;
+}
+
+.tag-vegan {
+  background-color: #81C784;
+  border-color: #66BB6A;
+}
+
+.tag-halal {
+  background-color: #1976D2; /* blue */
+  border-color: #1565C0;
+}
+
+.tag-spicy {
+  background-color: #E53935; /* red */
+  border-color: #C62828;
+}
+
+.tag-soupy {
+  background-color: #64B5F6;
+  border-color: #42A5F5;
+}
+
+.tag-rice {
+  background-color: #FFB300;
+  border-color: #FFA000;
+}
+
+.tag-noodles {
+  background-color: #FF7043;
+  border-color: #F4511E;
+}
+
+.tag-bread/wraps {
+  background-color: #FF7043;
+  border-color: #F4511E;
+}
+
+.tag-dollar {
+  background-color: #A1887F; /* budget $ */
+  border-color: #8D6E63;
+}
+
+/* Positioning for Each Corner */
 .top-left {
   top: 8px;
   left: 8px;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .top-right {
   top: 8px;
   right: 8px;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 
 .bottom-left {
-  bottom: 17px;
+  bottom: 19px;
   left: 8px;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .bottom-right {
-  bottom: 17px;
+  bottom: 19px;
   right: 8px;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 
 /* Primary filter buttons (no change) */
@@ -375,6 +451,41 @@ iframe {
   border: none;
   border-radius: 8px;
   font-size: 1rem;
-  cursor: pointer;
   font-weight: bold;
+  text-decoration: none; /* Ensures link doesn't look like a link */
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
+
+.primary-cta:hover {
+  background-color: #ff7a1f;
+}
+
+
+/* Just pick for me button animation */
+/* 🔄 Shuffling animation for meal card */
+.shuffle-animation {
+  animation: shuffleZoom 0.3s ease-in-out;
+}
+
+@keyframes shuffleZoom {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+background: radial-gradient(circle, #fdfbfb 0%, #ebedee 100%);

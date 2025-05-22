@@ -1,44 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
     
-<div class="buttons">
-      <button onclick="applyFilters()">🔍 Apply Filters</button>
-      <button onclick="justPickForMe()">🎲 Just Pick For Me</button>
-    </div>
+<section class="filters"  id="recommendation">
+  <h2>Filter Your Cravings 🍱</h2>
+<p>Our smart filters help you narrow down options based in what you're in the mood for: </p>
+  <!-- Primary Filter Buttons -->
+  <div class="primary-filters">
+    <button onclick="toggleSubFilter('diet')">🥗 Dietary Needs</button>
+    <button onclick="toggleSubFilter('base')">🍚 Meal Base</button>
+    <button onclick="toggleSubFilter('crave')">🔥 Crave Mode</button>
+    <button onclick="toggleSubFilter('budget')">💸 Budget</button>
+  </div>
 
-    <!-- 🧠 Filters Section -->
-  <section class="filters">
-    <h2>Filter Your Cravings 🍱</h2>
+  <!-- Subcategory Filter Buttons -->
+  <div class="sub-filters" id="diet-filters" style="display: none;">
+    <button onclick="applySingleFilter('diet', 'vegetarian')">Vegetarian</button>
+    <button onclick="applySingleFilter('diet', 'vegan')">Vegan</button>
+    <button onclick="applySingleFilter('diet', 'halal')">Halal</button>
+    <button onclick="applySingleFilter('diet', 'Gluten-Free')">Gluten-Free</button>
+    <button onclick="applySingleFilter('diet', 'Lactose-Free')">Lactose-Free</button>
+  </div>
 
-    <div class="filter-group">
-      <h3>Dietary Needs</h3>
-      <label><input type="checkbox" value="vegetarian" class="filter" data-type="diet"> Vegetarian</label>
-      <label><input type="checkbox" value="vegan" class="filter" data-type="diet"> Vegan</label>
-      <label><input type="checkbox" value="halal" class="filter" data-type="diet"> Halal</label>
-      <label><input type="checkbox" value="Gluten-Free" class="filter" data-type="diet"> Gluten-Free</label>
-      <label><input type="checkbox" value="Lactose-Free" class="filter" data-type="diet"> Lactose-Free</label>
-    </div>
+  <div class="sub-filters" id="base-filters" style="display: none;">
+    <button onclick="applySingleFilter('base', 'rice')">🍚 Rice</button>
+    <button onclick="applySingleFilter('base', 'noodles')">🍜 Noodles</button>
+    <button onclick="applySingleFilter('base', 'Bread/Wraps')">🥪 Bread/Wraps</button>
+    <button onclick="applySingleFilter('base', 'salad')">🥗 Salad</button>
+  </div>
 
-    <div class="filter-group">
-      <h3>Meal Base</h3>
-      <label><input type="checkbox" value="rice" class="filter" data-type="base"> 🍚Rice</label>
-      <label><input type="checkbox" value="noodles" class="filter" data-type="base"> 🍜Noodles</label>
-      <label><input type="checkbox" value="Bread/Wraps" class="filter" data-type="base"> 🥪Bread/Wraps</label>
-      <label><input type="checkbox" value="salad" class="filter" data-type="base"> 🥗Salad</label>
-    </div>
+  <div class="sub-filters" id="crave-filters" style="display: none;">
+    <button onclick="applySingleFilter('crave', 'Spicy')">🌶️ Spicy</button>
+    <button onclick="applySingleFilter('crave', 'Soupy')">🍲 Soupy</button>
+    <button onclick="applySingleFilter('crave', 'Sweet')">🍯 Sweet</button>
+    <button onclick="applySingleFilter('crave', 'Sour')">🍋 Sour</button>
+    <button onclick="applySingleFilter('crave', 'Savoury')">🍗 Savoury</button>
+  </div>
 
-    <div class="filter-group">
-      <h3>Budget</h3>
-      <label><input type="radio" name="budget" value="$" class="filter" data-type="budget"> $</label>
-      <label><input type="radio" name="budget" value="$$" class="filter" data-type="budget"> $$</label>
-      <label><input type="radio" name="budget" value="$$$" class="filter" data-type="budget"> $$$</label>
-    </div>
+  <div class="sub-filters" id="budget-filters" style="display: none;">
+    <button onclick="applySingleFilter('budget', '$')">$</button>
+    <button onclick="applySingleFilter('budget', '$$')">$$</button>
+    <button onclick="applySingleFilter('budget', '$$$')">$$$</button>
+  </div>
 
-    <div class="filter-group crave-mode">
-      <h3>Crave Mode</h3>
-      <label><input type="checkbox" value="Spicy" class="filter" data-type="crave"> 🌶️ Spicy</label>
-      <label><input type="checkbox" value="Soupy" class="filter" data-type="crave"> 🍲 Soupy</label>
-      <label><input type="checkbox" value="Sweet" class="filter" data-type="crave"> 🍯 Sweet</label>
-      <label><input type="checkbox" value="Sour" class="filter" data-type="crave"> 🍋 Sour</label>
-      <label><input type="checkbox" value="Crispy" class="filter" data-type="crave"> 🍗 Crispy</label>
-    </div>
+  <div class="buttons">
+    <button onclick="justPickForMe()">🎲 Just Pick For Me</button>
+  </div>
+</section>

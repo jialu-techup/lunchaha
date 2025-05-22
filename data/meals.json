@@ -5,8 +5,8 @@
     "description": "Authentic Hunan-style handmade rice noodles — enjoy them dry or in a hearty soup, packed with bold, spicy flavors.",
     "diet": ["vegetarian","halal"],
     "base": ["noodles","rice"],
-    "crave mood":["spicy","soupy"],
-    "price": "$",
+    "crave":["spicy","soupy"],
+    "budget": "$",
     "image": "assets/images/icons/sofun3.jpg",
     "location": "Alexandra Retail Centre (ARC) #01-01",
     "mapLink": "https://g.co/kgs/qF1hXJb",
@@ -18,8 +18,8 @@
     "description": "Our very own collection of fresh mouthwatering honest-to-goodness, well crafted gourmet superfood salad recipes for all to enjoy",
     "diet": ["vegetarian", "vegan"],
     "base": ["salad", "bread/wraps"],
-    "price": "$$",
-    "crave mood":["crispy"],
+    "budget": "$$",
+    "crave":["Savoury"],
     "image": "assets/images/icons/thegreenbar.jpg",
     "location": "Alexandra Retail Centre (ARC) #02-12",
     "mapLink": "https://g.co/kgs/kaQp5rc",
@@ -31,27 +31,57 @@
     "name": "McDonald's ARC",
     "description": "Classic, long-running fast-food chain known for its burgers & fries.",
     "diet": [],
-    "base": ["bread/wraps"],
-    "price": "$",
-    "crave mood":["crispy"],
+    "base": ["Bread/Wraps"],
+    "budget": "$",
+    "crave":["Savoury"],
     "image": "assets/images/icons/mcdonalds.jpg",
     "location": "Alexandra Retail Centre (ARC) #01-25",
     "mapLink": "https://g.co/kgs/i3dWyEd",
     "rating": 4.2
   },
 
-      {
+    {
     "id": 4,
     "name": "Sakana-No-Suppu",
     "description": "Be ready to enjoy the simple full-bodied soup accompanied by the rich texture of our fish and seafood we are going to serve.",
     "diet": [],
     "base": ["rice", "noodles"],
-    "price": "$$",
-    "crave mood":["soupy"],
+    "budget": "$$",
+    "crave":["soupy"],
     "image": "assets/images/icons/sakana.jpg",
     "location": "Alexandra Retail Centre (ARC) #02-42",
     "mapLink": "https://g.co/kgs/huzwYdY",
     "rating": 4.8
-  }
+  },
+
+    {
+    "id": 5,
+    "name": "Hundred Grains",
+    "description": " Seize control of your dining experience. Hundred Grains grants you the autonomy to make your own choices, offering a selection of 40 to 60 unforgettable dishes that represent diverse flavors from Sichuan, Hunan, and Guangdong.",
+    "diet": [],
+    "base": ["rice"],
+    "budget": "$$",
+    "crave":["spicy","Savoury"],
+    "image": "assets/images/icons/hundredgrains.jpg",
+    "location": "Alexandra Retail Centre (ARC) #02-02",
+    "mapLink": "https://g.co/kgs/3oE8Eyt",
+    "rating": 4.3
+    },
+
+
+     {
+    "id": 6,
+    "name": "Stuff'D",
+    "description": " Our Kebabs, Burritos, Quesadillas and Signature Daily Bowls are made daily from scratch, because we believe food tastes better when it's made fresh.",
+    "diet": ["vegetarian","vegan"],
+    "base": ["Bread/Wraps"],
+    "budget": "$",
+    "crave":["spicy","Crispy"],
+    "image": "assets/images/icons/stuffd.jpg",
+    "location": "Alexandra Retail Centre (ARC) #01-11",
+    "mapLink": "https://g.co/kgs/KjVwFBZ",
+    "rating": 4.3
+    }
+
 ]
 
