@@ -146,19 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Google Map Init
-function initMap() {
-  const mbc = { lat: 1.2766, lng: 103.7918 }; // Mapletree Business City
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 16,
-    center: mbc,
-  });
-  new google.maps.Marker({
-    position: mbc,
-    map: map,
-    title: "Lunch Spot!"
-  });
-}
+
 
 console.log("JS file is successfully linked!");
 
@@ -201,7 +189,7 @@ meals.forEach(meal => {
   ).join('');
 
   const tagBaseHTML = (meal.base || []).map(tag =>
-    `<span class="tag-pill tag-${tag.toLowerCase().replace(/\s+/g, '')}">${tag}</span>`
+    `<span class="tag-pill tag-${tag.toLowerCase().replace(/\s+/g, '').replace('/', '')}">${tag}</span>`
   ).join('');
 
   const tagDietHTML = (meal.diet || []).map(tag =>
@@ -212,20 +200,24 @@ meals.forEach(meal => {
     `<span class="tag-pill tag-${tag.toLowerCase().replace(/\s+/g, '')}">${tag}</span>`
   ).join('');
 
-  container.innerHTML += `
-    <div class="meal-card">
-      <div class="image-wrapper">
-        <img src="${meal.image}" alt="${meal.name}">
-        <div class="tag-overlay top-left">${tagBaseHTML}</div>
-        <div class="tag-overlay bottom-right">${tagBudgetHTML}</div>
-        <div class="tag-overlay bottom-left">${tagCraveHTML}</div>
-        <div class="tag-overlay top-right">${tagDietHTML}</div>
-      </div>
-        <h4>${meal.name}</h4>
-        <p>${meal.description}</p>
-        <button class="pickup-btn" onclick="alert('Ordering ${meal.name}...')">Order & Pick Up</button>
-        <button onclick="shareMeal('${meal.name}')">📤 Share</button>
-      </div>
-    `;
-  });
+container.innerHTML += `
+  <div class="meal-card">
+    <div class="image-wrapper">
+      <img src="${meal.image}" alt="${meal.name}">
+      <div class="tag-overlay top-left">${tagBaseHTML}</div>
+      <div class="tag-overlay bottom-right">${tagBudgetHTML}</div>
+      <div class="tag-overlay bottom-left">${tagCraveHTML}</div>
+      <div class="tag-overlay top-right">${tagDietHTML}</div>
+    </div>
+    <h4>${meal.name}</h4>
+    <p>${meal.description}</p>
+    <button class="view-map-btn" onclick="viewMap('${meal.mapLink}')">📍 View Map</button>
+    <button onclick="shareMeal('${meal.name}')">📤 Share</button>
+  </div>
+`;
+})
+}
+
+function viewMap(mapUrl) {
+  window.open(mapUrl, '_blank'); // Opens in a new tab
 }

@@ -327,14 +327,14 @@ iframe {
   border-color: #1565C0;
 }
 
-.tag-spicy {
-  background-color: #E53935; /* red */
-  border-color: #C62828;
+.tag-glutenfree {
+  background-color: #f19c51; /* green */
+  border-color: rgb(247, 132, 31);
 }
 
-.tag-soupy {
-  background-color: #64B5F6;
-  border-color: #42A5F5;
+.tag-lactosefree {
+  background-color: #fed983; /* beige */
+  border-color: #fccd5f;
 }
 
 .tag-rice {
@@ -347,9 +347,39 @@ iframe {
   border-color: #F4511E;
 }
 
-.tag-bread/wraps {
-  background-color: #FF7043;
-  border-color: #F4511E;
+.tag-breadwraps {
+  background-color: #c0694f;
+  border-color: #cb6f53ed;
+}
+
+.tag-salad {
+  background-color: #0cce23;
+  border-color: #079317;
+}
+
+.tag-spicy {
+  background-color: #E53935; /* red */
+  border-color: #C62828;
+}
+
+.tag-soupy {
+  background-color: #64B5F6;
+  border-color: #42A5F5;
+}
+
+.tag-sweet {
+  background-color: #f32c6b;
+  border-color: #ce134e;
+}
+
+.tag-sour {
+  background-color: #f6d464;
+  border-color: #f7c316;
+}
+
+.tag-savoury {
+  background-color: #f9a322;
+  border-color: #ea910c;
 }
 
 .tag-dollar {
@@ -489,3 +519,21 @@ html {
 }
 
 background: radial-gradient(circle, #fdfbfb 0%, #ebedee 100%);
+
+.view-map-btn {
+  background-color: #1a73e8;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.view-map-btn:hover {
+  background-color: #0c58c2;
+}
+
+

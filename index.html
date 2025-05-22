@@ -81,7 +81,7 @@
   </div>
 
   <div class="buttons">
-    <button onclick="justPickForMe()">🎲 Just Pick For Me</button>
+    <button onclick="justPickForMe()">🎲 Just Pick For Me! </button>
   </div>
 </section>
 
@@ -115,26 +115,22 @@
     </div>
   </section>
 
+  
   <!-- 🗺️ Google Map -->
-  <iframe
-    src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Mapletree+Business+City"
-    width="100%" height="250" allowfullscreen loading="lazy">
-  </iframe>
-
-  <div id="map" style="height: 300px;"></div>
   <div id="meal-container" style="height: 300px;"></div>
 
   <script src="scripts/main.js"></script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-  </script>
+
 <style>
 
   body {
     background-color: #fef7f0; /* Replace with your preferred color */
   }
+  
 </style>
 
+<button class="view-map-btn" ...>📍 View Map</button>
+<button class="view-map-btn" onclick="viewMap('${meal.mapLink}')">📍 View Map</button>
 
 </body>
 </html>

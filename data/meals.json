@@ -16,10 +16,10 @@
     "id": 2,
     "name": "The Green Bar",
     "description": "Our very own collection of fresh mouthwatering honest-to-goodness, well crafted gourmet superfood salad recipes for all to enjoy",
-    "diet": ["vegetarian", "vegan"],
+    "diet": ["vegetarian", "vegan","gluten free"],
     "base": ["salad", "bread/wraps"],
     "budget": "$$",
-    "crave":["Savoury"],
+    "crave":["savoury"],
     "image": "assets/images/icons/thegreenbar.jpg",
     "location": "Alexandra Retail Centre (ARC) #02-12",
     "mapLink": "https://g.co/kgs/kaQp5rc",
@@ -31,10 +31,10 @@
     "name": "McDonald's ARC",
     "description": "Classic, long-running fast-food chain known for its burgers & fries.",
     "diet": [],
-    "base": ["Bread/Wraps"],
+    "base": ["bread/wraps"],
     "budget": "$",
     "crave":["Savoury"],
-    "image": "assets/images/icons/mcdonalds.jpg",
+    "image": "assets/images/icons/mcdonalds.png",
     "location": "Alexandra Retail Centre (ARC) #01-25",
     "mapLink": "https://g.co/kgs/i3dWyEd",
     "rating": 4.2
@@ -61,7 +61,7 @@
     "diet": [],
     "base": ["rice"],
     "budget": "$$",
-    "crave":["spicy","Savoury"],
+    "crave":["spicy","savoury"],
     "image": "assets/images/icons/hundredgrains.jpg",
     "location": "Alexandra Retail Centre (ARC) #02-02",
     "mapLink": "https://g.co/kgs/3oE8Eyt",
@@ -74,13 +74,69 @@
     "name": "Stuff'D",
     "description": " Our Kebabs, Burritos, Quesadillas and Signature Daily Bowls are made daily from scratch, because we believe food tastes better when it's made fresh.",
     "diet": ["vegetarian","vegan"],
-    "base": ["Bread/Wraps"],
+    "base": ["bread/wraps"],
     "budget": "$",
-    "crave":["spicy","Crispy"],
+    "crave":["spicy","crispy"],
     "image": "assets/images/icons/stuffd.jpg",
     "location": "Alexandra Retail Centre (ARC) #01-11",
     "mapLink": "https://g.co/kgs/KjVwFBZ",
     "rating": 4.3
+    },
+
+    {
+    "id": 7,
+    "name": "SBCD Korean Tofu House",
+    "description": "SBCD Korean Tofu House specializes in a variety of Korean soft tofu soup, where the “soon” in “soontofu” means soft. It upholds the kitchen philosophy of serving uplifting and complete meals, and every soontofu dish is created with soft and silken tofu that is hand-made fresh daily, and prepared in 4 different levels of spiciness for the broth – mild, medium, spicy and crazy hot",
+    "diet": [],
+    "base": ["rice"],
+    "budget": "$$$",
+    "crave":["spicy","savoury"],
+    "image": "assets/images/icons/sbcd.jpg",
+    "location": "Alexandra Retail Centre (ARC) #02-21",
+    "mapLink": "https://g.co/kgs/YxgsBXE",
+    "rating": 4.0
+    },
+
+    {
+    "id": 8,
+    "name": "Ichiban Boshi",
+    "description": "We source the best ingredients direct from Japan and globally, and through our craftsmanship with Japanese expertise, we guarantee that every dish - from sushi to our popular set meals - is crafted to warm your hearts with perfected flavours.",
+    "diet": [],
+    "base": ["rice","noodles","salad"],
+    "budget": "$$",
+    "crave":["spicy","savoury"],
+    "image": "assets/images/icons/ichiban.jpg",
+    "location": "Alexandra Retail Centre (ARC) #02-22",
+    "mapLink": "https://g.co/kgs/8TCGupo",
+    "rating": 4.3
+    },
+
+    {
+    "id": 9,
+    "name": "MK Levure Naturelle",
+    "description": "A well-known bakery and pastry branding established 15 years with 15 outlets located in Singapore, is also well versed with the knowledge of food quality.",
+    "diet": [],
+    "base": ["bread/wraps"],
+    "budget": "$",
+    "crave":["sweet","savoury"],
+    "image": "assets/images/icons/mkln.jpg",
+    "location": "Alexandra Retail Centre (ARC) #01-08",
+    "mapLink": "https://g.co/kgs/5uCNCPY",
+    "rating": 3.2
+    },
+
+    {
+    "id": 10,
+    "name": "Cedele",
+    "description": "Cedele today is an artisanal food and beverage chain offering a wide selection of soups, salads, breads, cakes, sandwiches, greens, grains, grills and a whole lot more. ",
+    "diet": ["vegan","vegetarian","lactose free"],
+    "base": ["bread/wraps","salad"],
+    "budget": "$$",
+    "crave":["sweet","savoury"],
+    "image": "assets/images/icons/cedele.jpg",
+    "location": "20 Pasir Panjang Rd, #02-12 Mapletree Business City II",
+    "mapLink": "https://g.co/kgs/SPW4XrY",
+    "rating": 3.8
     }
 
 ]
