@@ -78,12 +78,14 @@ function handleOrder(name) {
 }
 
 
-function shareMeal(name) {
-  const shareURL = `https://lunch-aha-app.com/?meal=${encodeURIComponent(name)}`;
-  navigator.clipboard.writeText(shareURL).then(() => {
-    alert("Link copied! Share it with your team.");
+function shareMeal(mapLink) {
+  navigator.clipboard.writeText(mapLink).then(() => {
+    alert("Map link copied! Share now!");
+  }).catch(err => {
+    console.error('Failed to copy text: ', err);
   });
 }
+
 
 function trackMeal(name) {
   const history = JSON.parse(localStorage.getItem('mealHistory')) || [];
@@ -212,7 +214,7 @@ container.innerHTML += `
     <h4>${meal.name}</h4>
     <p>${meal.description}</p>
     <button class="view-map-btn" onclick="viewMap('${meal.mapLink}')">📍 View Map</button>
-    <button onclick="shareMeal('${meal.name}')">📤 Share</button>
+    <button onclick="shareMeal('${meal.mapLink}')">📤 Share</button>
   </div>
 `;
 })
