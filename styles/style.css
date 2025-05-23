@@ -136,7 +136,7 @@ header p {
   border: none;
   background-color: #ff8c42;
   color: white;
-  font-size: 1rem;
+  font-size: 1 rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -253,6 +253,45 @@ header p {
 .meal-history p {
   font-size: 1rem;
   color: #666;
+}
+
+.meal-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0 8px 0;
+  background: #fff8ed;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(255,179,71,0.10);
+  font-family: 'Rubik', Arial, sans-serif;
+}
+
+.meal-history-table th, .meal-history-table td {
+  padding: 12px 10px;
+  text-align: center;
+}
+
+.meal-history-table th {
+  background: linear-gradient(90deg, #63c021 0%, #bcf693 100%);
+  color: #7a4a00;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-bottom: 2px solid #59ab1e;
+}
+
+.meal-history-table td {
+  color: #7a4a00;
+  font-size: 1rem;
+  border-bottom: 1px solid #974b04bf;
+}
+
+.meal-history-table tr:last-child td {
+  border-bottom: none;
+}
+
+.meal-history-table tr:hover {
+  background: #ebfdd5;
+  transition: background 0.2s;
 }
 
 /* Google Map */
@@ -430,7 +469,7 @@ iframe {
 }
 
 .primary-filters button:hover {
-  background-color: #ff944d;
+  background-color: #ff9500;
 }
 
 /* Sub-filter buttons (new color scheme) */
@@ -447,7 +486,7 @@ iframe {
 }
 
 .sub-filters button:hover {
-  background-color: #ffc107; /* Slightly deeper yellow */
+  background-color: #7ee813; /* Slightly deeper yellow */
 }
 
 /* Animation keyframes */
@@ -567,6 +606,31 @@ html {
 
 .eat-today-btn:hover, .eat-today-btn:focus {
   background: linear-gradient(90deg, #ffa500 0%, #ffd699 100%);
+  color: #5a3200;
+  transform: translateY(-2px) scale(1.03);
+  outline: none;
+}
+
+/* Back button styles */
+.back-btn {
+  background: linear-gradient(90deg, #88fb88 0%, #47f047 100%);
+  color: #7a4a00;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 20px;
+  margin: 18px 0 0 0;
+  font-size: 1.02rem;
+  font-family: 'Rubik', Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255,179,71,0.10);
+  transition: background 0.2s, transform 0.1s;
+  display: inline-block;
+}
+
+.back-btn:hover, .back-btn:focus {
+  background: linear-gradient(90deg, #60f360 0%, #07de07 100%);
   color: #5a3200;
   transform: translateY(-2px) scale(1.03);
   outline: none;

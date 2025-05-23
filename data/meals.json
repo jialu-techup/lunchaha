@@ -76,7 +76,7 @@
 
      {
     "id": 6,
-    "name": "Stuff'D",
+    "name": "Stuff D",
     "description": " Our Kebabs, Burritos, Quesadillas and Signature Daily Bowls are made daily from scratch, because we believe food tastes better when it's made fresh.",
     "diet": ["vegetarian","vegan"],
     "base": ["bread/wraps"],

@@ -7,7 +7,7 @@ fetch('../data/meals.json')
   })
   .then(data => {
     meals = data;
-    loadMealDetails(); // Call after data is loaded
+    loadMealDetails();
   })
   .catch(error => {
     console.error('Error loading meal data:', error);
@@ -28,30 +28,43 @@ function loadMealDetails() {
   }
 
   document.getElementById('meal-name').textContent = meal.name;
-  document.getElementById('meal-img').src = "../"+meal.image;
+  document.getElementById('meal-img').src = "../" + meal.image;
   document.getElementById('meal-img').alt = meal.name;
   document.getElementById('meal-desc').textContent = meal.description;
   document.getElementById('meal-budget').textContent = meal.budget || 'Not specified';
   document.getElementById('meal-rating').textContent = meal.rating ? meal.rating + ' ⭐' : 'No rating';
-  document.getElementById('meal-map').href = meal.mapLink;
   document.getElementById('meal-reason').textContent =
     meal.reason && meal.reason.trim()
       ? meal.reason
       : "It matches your craving and budget!";
 
-  document.getElementById('detail-view-map').onclick = function() {
-    window.open(meal.mapLink, '_blank');
-  };
-  document.getElementById('detail-share').onclick = function() {
-    navigator.clipboard.writeText(meal.mapLink).then(() => {
-      alert("Map link copied! Share now!");
-    });
-  };
-  document.getElementById('detail-eat-today').onclick = function() {
-    // Add to meal history (same as main.js)
-    let history = JSON.parse(localStorage.getItem('mealHistory')) || [];
-    history.push({ name: meal.name, date: new Date().toISOString() });
-    localStorage.setItem('mealHistory', JSON.stringify(history));
-    alert('Added to meal history🍱');
-  };
+  // View Map button: open Google Maps link in new tab
+  const viewMapBtn = document.getElementById('detail-view-map');
+  if (viewMapBtn) {
+    viewMapBtn.onclick = function () {
+      if (meal.mapLink) {
+        window.open(meal.mapLink, '_blank', 'noopener');
+      } else {
+        alert('No map link available for this meal.');
+      }
+    };
+  }
+
+  // Share button: copy Google Maps link to clipboard
+  const shareBtn = document.getElementById('detail-share');
+  if (shareBtn) {
+    shareBtn.onclick = function () {
+      if (meal.mapLink) {
+        navigator.clipboard.writeText(meal.mapLink)
+          .then(() => {
+            alert("Map link copied! You can now paste it to share.");
+          })
+          .catch(() => {
+            alert("Failed to copy the link. Please try again.");
+          });
+      } else {
+        alert('No map link available to share.');
+      }
+    };
+  }
 }

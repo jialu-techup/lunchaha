@@ -117,13 +117,38 @@ function renderHistory() {
   const history = JSON.parse(localStorage.getItem('mealHistory')) || [];
   const recentMeals = history
     .filter(h => (new Date() - new Date(h.date)) < 7 * 24 * 60 * 60 * 1000)
-    .map(h => `<li>${h.name} – ${new Date(h.date).toLocaleDateString()}</li>`)
     .reverse()
     .slice(0, 5);
 
+  // Helper to get day of week
+  function getDayOfWeek(dateStr) {
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const d = new Date(dateStr);
+    return days[d.getDay()];
+  }
+
+  let tableRows = recentMeals.map(h =>
+    `<tr>
+      <td>${h.name}</td>
+      <td>${getDayOfWeek(h.date)}</td>
+      <td>${new Date(h.date).toLocaleDateString()}</td>
+    </tr>`
+  ).join('');
+
   historyContent.innerHTML = `
-    <ul>${recentMeals.length > 0 ? recentMeals.join('') : '<li>No meals tracked yet.</li>'}</ul>
-    ${suggestVarietyTip(history)}
+    <table class="meal-history-table">
+      <thead>
+        <tr>
+          <th>Meal Name</th>
+          <th>Day</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${tableRows || '<tr><td colspan="3">No meals tracked yet.</td></tr>'}
+      </tbody>
+    </table>
+    ${suggestVarietyTip(recentMeals)}
   `;
 }
 
