@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KWG8QVK71T"></script>
 <script>
@@ -90,8 +91,12 @@
     <button onclick="applySingleFilter('budget', '$$$')">$$$</button>
   </div>
 
+<script>
+
+</script>
+
   <div class="buttons">
-    <button onclick="justPickForMe()">🎲 Just Pick For Me! </button>
+    <button onclick="justPickForMe();">🎲 Just Pick For Me! </button>
   </div>
 </section>
 
@@ -110,24 +115,9 @@
     }
   </script>
 
-  <!-- 🗂️ Collapsible Meal History -->
-  <section class="meal-history">
-    <h2 onclick="toggleHistory()">📅 Meal History <span id="toggle-icon">▼</span></h2>
-    <div id="history-content" style="display:none;">
-      <ul id="meal-log">
-        <li>Mon: Chicken Rice 🍗</li>
-        <li>Tue: Vegetarian Salad 🥗</li>
-        <li>Wed: Laksa 🍜</li>
-        <li>Thu: Mala Hotpot 🌶️</li>
-        <li>Fri: Sushi Bento 🍣</li>
-      </ul>
-      <p><em>Tip:</em> You’ve had spicy 3 times this week — maybe try something refreshing today!</p>
-    </div>
-  </section>
-
   
   <!-- 🗺️ Google Map -->
-  <div id="meal-container" style="height: 300px;"></div>
+  <div id="meal-container"></div>
 
   <script src="scripts/main.js"></script>
 
@@ -139,8 +129,20 @@
   
 </style>
 
-<button class="view-map-btn" ...>📍 View Map</button>
-<button class="view-map-btn" onclick="viewMap('${meal.mapLink}')">📍 View Map</button>
+  <section class="meal-history">
+    <h2 onclick="toggleHistory()">📅 Meal History <span id="toggle-icon">▼</span></h2>
+    <div id="history-content" style="display: none;">
+      <ul id="meal-log">
+        <li>Mon: Chicken Rice 🍗</li>
+        <li>Tue: Vegetarian Salad 🥗</li>
+        <li>Wed: Laksa 🍜</li>
+        <li>Thu: Mala Hotpot 🌶️</li> 
+        <li>Fri: Sushi Bento 🍣</li>
+      </ul>
+      <p><em>Tip:</em> You’ve had spicy 3 times this week — maybe try something refreshing today!</p>
+    </div>
+  </section>
+
 
 </body>
 </html>

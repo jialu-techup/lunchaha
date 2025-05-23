@@ -53,21 +53,25 @@ function applyFilters() {
       const card = document.querySelector('.meal-card');
       if (card) {
         card.classList.add('shuffle-animation');
-        // Remove class after animation so it can re-trigger on next render
         setTimeout(() => card.classList.remove('shuffle-animation'), 300);
       }
-    }, 10); // Wait until DOM updates
+    }, 10);
 
     elapsed += intervalTime;
     if (elapsed >= shuffleDuration) {
       clearInterval(interval);
       const finalPick = mealData[Math.floor(Math.random() * mealData.length)];
       renderMeals([finalPick]);
-      alert(`🎉 Try this today: ${finalPick.name}`);
-      trackMeal(finalPick.name);
-      checkForRepeats(finalPick.name);
+      // Do NOT call trackMeal or alert here!
+      setTimeout(function() {
+        alert(`🎉 Try this today: ${finalPick.name}`);
+      }, 500);
     }
   }, intervalTime);
+}
+
+function alertme(name){
+  alert(`🎉 Try this today: ${name}`);
 }
 
 
@@ -103,6 +107,7 @@ function checkForRepeats(name) {
   if (recent.length >= 3) {
     alert(`You've had ${name} ${recent.length} times this week. How about mixing it up?`);
   }
+  return true;
 }
 
 function renderHistory() {
@@ -185,41 +190,45 @@ function renderMeals(meals) {
     return;
   }
 
-meals.forEach(meal => {
-  const tagCraveHTML = (meal["crave"] || []).map(tag =>
-    `<span class="tag-pill tag-${tag.toLowerCase().replace(/\s+/g, '')}">${tag}</span>`
-  ).join('');
+  meals.forEach(meal => {
+    const tagCraveHTML = (meal["crave"] || []).map(tag =>
+      `<span class="tag-pill tag-${tag.toLowerCase().replace(/\s+/g, '')}">${tag}</span>`
+    ).join('');
 
-  const tagBaseHTML = (meal.base || []).map(tag =>
-    `<span class="tag-pill tag-${tag.toLowerCase().replace(/\s+/g, '').replace('/', '')}">${tag}</span>`
-  ).join('');
+    const tagBaseHTML = (meal.base || []).map(tag =>
+      `<span class="tag-pill tag-${tag.toLowerCase().replace(/\s+/g, '').replace('/', '')}">${tag}</span>`
+    ).join('');
 
-  const tagDietHTML = (meal.diet || []).map(tag =>
-    `<span class="tag-pill tag-${tag.toLowerCase().replace(/\s+/g, '')}">${tag}</span>`
-  ).join('');
+    const tagDietHTML = (meal.diet || []).map(tag =>
+      `<span class="tag-pill tag-${tag.toLowerCase().replace(/\s+/g, '')}">${tag}</span>`
+    ).join('');
 
-  const tagBudgetHTML = [`${meal.budget}`].map(tag =>
-    `<span class="tag-pill tag-${tag.toLowerCase().replace(/\s+/g, '')}">${tag}</span>`
-  ).join('');
+    const tagBudgetHTML = [`${meal.budget}`].map(tag =>
+      `<span class="tag-pill tag-${tag.toLowerCase().replace(/\s+/g, '')}">${tag}</span>`
+    ).join('');
 
-container.innerHTML += `
-  <div class="meal-card">
-    <div class="image-wrapper">
-      <img src="${meal.image}" alt="${meal.name}">
-      <div class="tag-overlay top-left">${tagBaseHTML}</div>
-      <div class="tag-overlay bottom-right">${tagBudgetHTML}</div>
-      <div class="tag-overlay bottom-left">${tagCraveHTML}</div>
-      <div class="tag-overlay top-right">${tagDietHTML}</div>
-    </div>
-    <h4>${meal.name}</h4>
-    <p>${meal.description}</p>
-    <button class="view-map-btn" onclick="viewMap('${meal.mapLink}')">📍 View Map</button>
-    <button onclick="shareMeal('${meal.mapLink}')">📤 Share</button>
-  </div>
-`;
-})
+    container.innerHTML += `
+      <a href="pages/meal-detail.html?id=${encodeURIComponent(meal.name)}" class="meal-card-link" style="text-decoration:none;color:inherit;">
+        <div class="meal-card">
+          <div class="image-wrapper">
+            <img src="${meal.image}" alt="${meal.name}">
+            <div class="tag-overlay top-left">${tagBaseHTML}</div>
+            <div class="tag-overlay bottom-right">${tagBudgetHTML}</div>
+            <div class="tag-overlay bottom-left">${tagCraveHTML}</div>
+            <div class="tag-overlay top-right">${tagDietHTML}</div>
+          </div>
+          <h4>${meal.name}</h4>
+          <p>${meal.description}</p>
+          <button class="eat-today-btn" onclick="event.stopPropagation();eatThisToday('${meal.name}')">🍽️ Eat This Today!</button>
+        </div>
+      </a>
+    `;
+  });
 }
 
-function viewMap(mapUrl) {
-  window.open(mapUrl, '_blank'); // Opens in a new tab
+// Add this function at the bottom of your main.js:
+function eatThisToday(name) {
+  trackMeal(name);
+  alert('Added to meal history🍱');
 }
+

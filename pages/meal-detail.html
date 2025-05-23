@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meal Details</title>
+  <link rel="stylesheet" href="../styles/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>🍽️ Lunch? Aha!</h1>
+  </header>
+
+  <section id="meal-detail" class="meal-card" style="margin: 20px auto; max-width: 600px;">
+    <h2 id="meal-name"></h2>
+    <img id="meal-img" src="" alt="" style="width: 100%; border-radius: 12px;">
+    <p id="meal-desc"></p>
+    <p><strong>Why this pick?</strong> <span id="meal-reason"></span></p>
+    <p><strong>Price:</strong> <span id="meal-budget"></span></p>
+    <p><strong>Rating:</strong> <span id="meal-rating"></span></p>
+    <div style="margin: 16px 0;">
+      <button class="view-map-btn" id="detail-view-map">📍 View Map</button>
+      <button class="view-map-btn" id="detail-share">📤 Share</button>
+    </div>
+    <button onclick="window.history.back()">⬅ Back</button>
+  </section>
+
+  <script src="../scripts/meal-detail.js"></script>
+</body>
+</html>
