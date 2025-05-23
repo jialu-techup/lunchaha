@@ -37,6 +37,7 @@ function loadMealDetails() {
     meal.reason && meal.reason.trim()
       ? meal.reason
       : "It matches your craving and budget!";
+  document.getElementById('meal-location').textContent = meal.location || 'Not specified';
 
   // View Map button: open Google Maps link in new tab
   const viewMapBtn = document.getElementById('detail-view-map');

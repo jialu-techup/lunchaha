@@ -79,9 +79,9 @@
     "name": "Stuff D",
     "description": " Our Kebabs, Burritos, Quesadillas and Signature Daily Bowls are made daily from scratch, because we believe food tastes better when it's made fresh.",
     "diet": ["vegetarian","vegan"],
-    "base": ["bread/wraps"],
+    "base": ["bread/wraps","salad"],
     "budget": "$",
-    "crave":["spicy","crispy"],
+    "crave":["savoury"],
     "image": "assets/images/icons/stuffd.jpg",
     "location": "Alexandra Retail Centre (ARC) #01-11",
     "mapLink": "https://g.co/kgs/KjVwFBZ",
@@ -96,7 +96,7 @@
     "diet": [],
     "base": ["rice"],
     "budget": "$$$",
-    "crave":["spicy","savoury"],
+    "crave":["spicy","savoury","soupy"],
     "image": "assets/images/icons/sbcd.jpg",
     "location": "Alexandra Retail Centre (ARC) #02-21",
     "mapLink": "https://g.co/kgs/YxgsBXE",
@@ -111,7 +111,7 @@
     "diet": [],
     "base": ["rice","noodles","salad"],
     "budget": "$$",
-    "crave":["spicy","savoury"],
+    "crave":["spicy","savoury","soupy"],
     "image": "assets/images/icons/ichiban.jpg",
     "location": "Alexandra Retail Centre (ARC) #02-22",
     "mapLink": "https://g.co/kgs/8TCGupo",
@@ -131,14 +131,14 @@
     "location": "Alexandra Retail Centre (ARC) #01-08",
     "mapLink": "https://g.co/kgs/5uCNCPY",
     "rating": 3.2,
-    "reason":"if you are craving some light snacks, be it sweet/savoury!"
+    "reason":"if you are craving some light snacks, be it sweet/savoury, this is it!"
     },
 
     {
     "id": 10,
     "name": "Cedele",
     "description": "Cedele today is an artisanal food and beverage chain offering a wide selection of soups, salads, breads, cakes, sandwiches, greens, grains, grills and a whole lot more. ",
-    "diet": ["vegan","vegetarian","lactose-free"],
+    "diet": ["vegan","lactose-free"],
     "base": ["bread/wraps","salad"],
     "budget": "$$",
     "crave":["sweet","savoury"],
@@ -147,6 +147,21 @@
     "mapLink": "https://g.co/kgs/SPW4XrY",
     "rating": 3.8,
     "reason":"Feeling virtuous? Grab a fab salad—then balance it out with a sweet little bake. 😇🍪"
+    },
+
+    {
+    "id": 11,
+    "name": "Old Chang Kee",
+    "description": "For over half a century, Singaporeans from all walks of life have enjoyed Old Chang Kee's signature Curry’O - a crispy pastry shell generously stuffed with curried potato, chicken and an egg slice, all cooked with special herbs and spices.Old Chang Kee also offers other delectable hot snacks and lip-smacking quick bites.",
+    "diet": [],
+    "base": ["rice","noodles"],
+    "budget": "$",
+    "crave":["savoury"],
+    "image": "assets/images/icons/ock.jpg",
+    "location": "460 Alexandra Rd, #02-36 Alexandra Retail Centre (ARC)",
+    "mapLink": "https://g.co/kgs/5sgeZGj",
+    "rating": 3.1,
+    "reason":"Craving crunch? Dive into some golden, crispy fried finger food—then balance it out with a fresh, zesty dip. Because life’s all about delicious contrasts! 😇🍟✨"
     }
 
 ]

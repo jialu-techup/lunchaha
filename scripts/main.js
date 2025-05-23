@@ -232,6 +232,12 @@ function renderMeals(meals) {
       `<span class="tag-pill tag-${tag.toLowerCase().replace(/\s+/g, '')}">${tag}</span>`
     ).join('');
 
+    // Check if only one meal is shown (e.g. after justPickForMe)
+    let extraBtn = '';
+    if (meals.length === 1 && document.querySelector('.buttons button')?.textContent?.includes('Just Pick For Me')) {
+      extraBtn = `<button class="eat-today-btn" style="margin-left:10px;" onclick=\"event.stopPropagation();window.location.href='index.html#recommendation'\">🔙 Back to Options</button>`;
+    }
+
     container.innerHTML += `
       <a href="pages/meal-detail.html?id=${encodeURIComponent(meal.name)}" class="meal-card-link" style="text-decoration:none;color:inherit;">
         <div class="meal-card">
@@ -244,7 +250,7 @@ function renderMeals(meals) {
           </div>
           <h4>${meal.name}</h4>
           <p>${meal.description}</p>
-          <button class="eat-today-btn" onclick="event.stopPropagation();eatThisToday('${meal.name}')">🍽️ Eat This Today!</button>
+          <button class="eat-today-btn" onclick="event.stopPropagation();eatThisToday('${meal.name}')">🍽️ Eat This Today!</button>${extraBtn}
         </div>
       </a>
     `;
