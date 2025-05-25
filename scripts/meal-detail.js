@@ -28,6 +28,38 @@ function loadMealDetails() {
   }
 
   document.getElementById('meal-name').textContent = meal.name;
+
+  // Nudge logic: check if this meal has been eaten 3+ times in the last 4 lunches
+  const history = JSON.parse(localStorage.getItem('mealHistory')) || [];
+  const normalized = n => n.toLowerCase().trim();
+  const recentMeals = history
+    .filter(h => (new Date() - new Date(h.date)) < 7 * 24 * 60 * 60 * 1000)
+    .reverse()
+    .slice(0, 5); // last 5 lunches
+  const count = recentMeals.filter(m => normalized(m.name) === normalized(meal.name)).length;
+  let displayName = meal.name;
+  for (let m of recentMeals) {
+    if (normalized(m.name) === normalized(meal.name)) {
+      displayName = m.name;
+      break;
+    }
+  }
+  const nudgeDiv = document.getElementById('meal-nudge');
+  if (count >= 3 && nudgeDiv) {
+    nudgeDiv.innerHTML = `You’ve had <strong>${displayName}</strong> ${count} times recently — how about switching things up for lunch today? 🌱`;
+    nudgeDiv.style.background = '#fffbe0';
+    nudgeDiv.style.color = '#e1701a';
+    nudgeDiv.style.padding = '8px 16px';
+    nudgeDiv.style.borderRadius = '16px';
+    nudgeDiv.style.fontWeight = '600';
+    nudgeDiv.style.boxShadow = '0 2px 8px rgba(255,179,71,0.10)';
+    nudgeDiv.style.fontSize = '1rem';
+    nudgeDiv.style.maxWidth = '320px';
+    nudgeDiv.style.textAlign = 'right';
+  } else if (nudgeDiv) {
+    nudgeDiv.innerHTML = '';
+  }
+
   document.getElementById('meal-img').src = "../" + meal.image;
   document.getElementById('meal-img').alt = meal.name;
   document.getElementById('meal-desc').textContent = meal.description;

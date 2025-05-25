@@ -35,7 +35,21 @@ function applyFilters() {
   checkForRepeats(random.name);
 } */
 
-  function justPickForMe() {
+function justPickForMe() {
+  // Exclude meals that have appeared 3 or more times in the last 7 days
+  const history = JSON.parse(localStorage.getItem('mealHistory')) || [];
+  const recentHistory = history.filter(h => (new Date() - new Date(h.date)) < 7 * 24 * 60 * 60 * 1000);
+  const mealCounts = {};
+  recentHistory.forEach(entry => {
+    const key = entry.name.toLowerCase().trim();
+    mealCounts[key] = (mealCounts[key] || 0) + 1;
+  });
+  // Only include meals that have appeared less than 3 times
+  const eligibleMeals = mealData.filter(meal => {
+    const key = meal.name.toLowerCase().trim();
+    return !mealCounts[key] || mealCounts[key] < 3;
+  });
+
   const shuffleDuration = 2000; // 2 seconds
   const intervalTime = 100;
   let elapsed = 0;
@@ -45,7 +59,12 @@ function applyFilters() {
   container.innerHTML = '<p>🔄 Finding your perfect lunch match...</p>';
 
   interval = setInterval(() => {
-    const random = mealData[Math.floor(Math.random() * mealData.length)];
+    if (eligibleMeals.length === 0) {
+      container.innerHTML = '<p>No eligible meals found. Try clearing your history or eating something new!</p>';
+      clearInterval(interval);
+      return;
+    }
+    const random = eligibleMeals[Math.floor(Math.random() * eligibleMeals.length)];
     renderMeals([random]);
 
     // Add shuffle animation class
@@ -60,9 +79,8 @@ function applyFilters() {
     elapsed += intervalTime;
     if (elapsed >= shuffleDuration) {
       clearInterval(interval);
-      const finalPick = mealData[Math.floor(Math.random() * mealData.length)];
+      const finalPick = eligibleMeals[Math.floor(Math.random() * eligibleMeals.length)];
       renderMeals([finalPick]);
-      // Do NOT call trackMeal or alert here!
       setTimeout(function() {
         alert(`🎉 Try this today: ${finalPick.name}`);
       }, 500);
@@ -99,20 +117,40 @@ function trackMeal(name) {
 }
 
 function checkForRepeats(name) {
+  const normalize = str => str.toLowerCase().replace(/[^\w\s]/gi, '').trim();
+
   const history = JSON.parse(localStorage.getItem('mealHistory')) || [];
   const recent = history.filter(h => {
     const date = new Date(h.date);
-    return (new Date() - date) < 7 * 24 * 60 * 60 * 1000 && h.name === name;
+    return (new Date() - date) < 7 * 24 * 60 * 60 * 1000 &&
+           normalize(h.name) === normalize(name);
   });
+
+  // Select the tip paragraph from the DOM
+  const tipElement = document.getElementById('meal-tip');
+
   if (recent.length >= 3) {
-    alert(`You've had ${name} ${recent.length} times this week. How about mixing it up?`);
+    const message = `You’ve had <strong>${name}</strong> ${recent.length} times this week — maybe try something different today! 🌱`;
+    if (tipElement) {
+      tipElement.innerHTML = `<em>Tip:</em> ${message}`;
+    } else {
+      alert(`You've had ${name} ${recent.length} times this week. How about mixing it up?`);
+    }
+  } else if (tipElement) {
+    // Clear previous tip if no issue
+    tipElement.innerHTML = `<em>Tip:</em> You're doing great with variety! 🎉`;
   }
+
   return true;
+  
 }
 
+
+
 function renderHistory() {
-  const historyContent = document.getElementById('history-content');
-  if (!historyContent) return;
+  const tableBody = document.getElementById('meal-log-table');
+  const tipElement = document.getElementById('meal-tip');
+  if (!tableBody) return;
 
   const history = JSON.parse(localStorage.getItem('mealHistory')) || [];
   const recentMeals = history
@@ -120,37 +158,44 @@ function renderHistory() {
     .reverse()
     .slice(0, 5);
 
-  // Helper to get day of week
-  function getDayOfWeek(dateStr) {
-    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    const d = new Date(dateStr);
-    return days[d.getDay()];
+  // Clear the current table content
+  tableBody.innerHTML = '';
+
+  if (recentMeals.length === 0) {
+    tableBody.innerHTML = `<tr><td colspan="3">No meals tracked yet.</td></tr>`;
+    if (tipElement) tipElement.innerHTML = `<em>Tip:</em> You're doing great with variety! 🎉`;
+    return;
   }
 
-  let tableRows = recentMeals.map(h =>
-    `<tr>
-      <td>${h.name}</td>
-      <td>${getDayOfWeek(h.date)}</td>
-      <td>${new Date(h.date).toLocaleDateString()}</td>
-    </tr>`
-  ).join('');
+  for (let meal of recentMeals) {
+    const date = new Date(meal.date);
+    const day = date.toLocaleDateString('en-SG', { weekday: 'short' });
+    const formattedDate = date.toLocaleDateString('en-SG', { day: 'numeric', month: 'short' });
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${day}</td>
+      <td>${formattedDate}</td>
+      <td>${meal.name}</td>
+    `;
+    tableBody.appendChild(row);
+  }
 
-  historyContent.innerHTML = `
-    <table class="meal-history-table">
-      <thead>
-        <tr>
-          <th>Meal Name</th>
-          <th>Day</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${tableRows || '<tr><td colspan="3">No meals tracked yet.</td></tr>'}
-      </tbody>
-    </table>
-    ${suggestVarietyTip(recentMeals)}
-  `;
+  // Check for any meal eaten 3 or more times in the last 5 lunches
+  const mealCounts = {};
+  recentMeals.forEach(entry => {
+    const key = entry.name.toLowerCase().trim();
+    mealCounts[key] = (mealCounts[key] || 0) + 1;
+  });
+  if (tipElement) {
+    const repeated = Object.entries(mealCounts).find(([_, count]) => count >= 3);
+    if (repeated) {
+      tipElement.innerHTML = `<em>Tip:</em> You’ve had <strong>${repeated[0]}</strong> ${repeated[1]} times recently — maybe try something different for your next lunch! 🌱`;
+    } else {
+      tipElement.innerHTML = `<em>Tip:</em> You're doing great with variety! 🎉`;
+    }
+  }
 }
+
 
 function suggestVarietyTip(history) {
   const counts = {};
@@ -232,34 +277,54 @@ function renderMeals(meals) {
       `<span class="tag-pill tag-${tag.toLowerCase().replace(/\s+/g, '')}">${tag}</span>`
     ).join('');
 
-    // Check if only one meal is shown (e.g. after justPickForMe)
-    let extraBtn = '';
-    if (meals.length === 1 && document.querySelector('.buttons button')?.textContent?.includes('Just Pick For Me')) {
-      extraBtn = `<button class="eat-today-btn" style="margin-left:10px;" onclick=\"event.stopPropagation();window.location.href='index.html#recommendation'\">🔙 Back to Options</button>`;
-    }
-
     container.innerHTML += `
-      <a href="pages/meal-detail.html?id=${encodeURIComponent(meal.name)}" class="meal-card-link" style="text-decoration:none;color:inherit;">
-        <div class="meal-card">
-          <div class="image-wrapper">
-            <img src="${meal.image}" alt="${meal.name}">
-            <div class="tag-overlay top-left">${tagBaseHTML}</div>
-            <div class="tag-overlay bottom-right">${tagBudgetHTML}</div>
-            <div class="tag-overlay bottom-left">${tagCraveHTML}</div>
-            <div class="tag-overlay top-right">${tagDietHTML}</div>
-          </div>
-          <h4>${meal.name}</h4>
-          <p>${meal.description}</p>
-          <button class="eat-today-btn" onclick="event.stopPropagation();eatThisToday('${meal.name}')">🍽️ Eat This Today!</button>${extraBtn}
+      <div class="meal-card">
+        <div class="image-wrapper">
+          <img src="${meal.image}" alt="${meal.name}">
+          <div class="tag-overlay top-left">${tagBaseHTML}</div>
+          <div class="tag-overlay bottom-right">${tagBudgetHTML}</div>
+          <div class="tag-overlay bottom-left">${tagCraveHTML}</div>
+          <div class="tag-overlay top-right">${tagDietHTML}</div>
         </div>
-      </a>
+        <h4>${meal.name}</h4>
+        <p>${meal.description}</p>
+        <button class="find-out-more-btn" onclick="window.location.href='pages/meal-detail.html?id=${encodeURIComponent(meal.name)}';event.stopPropagation();">🔎 Find Out More</button>
+      </div>
     `;
   });
 }
 
 // Add this function at the bottom of your main.js:
 function eatThisToday(name) {
+  // Count how many times this meal appears in the last 5 lunches (before this click)
+  const history = JSON.parse(localStorage.getItem('mealHistory')) || [];
+  const normalized = n => n.toLowerCase().trim();
+  const recentMeals = history
+    .filter(h => (new Date() - new Date(h.date)) < 7 * 24 * 60 * 60 * 1000)
+    .reverse()
+    .slice(0, 4); // Only last 4, since this click will be the 5th
+  const count = recentMeals.filter(m => normalized(m.name) === normalized(name)).length;
+
+  // Add the new meal to history
   trackMeal(name);
-  alert('Added to meal history🍱');
+
+  // Use the most recent matching meal's name for display (preserves original case)
+  let displayName = name;
+  for (let m of recentMeals) {
+    if (normalized(m.name) === normalized(name)) {
+      displayName = m.name;
+      break;
+    }
+  }
+
+  if (count >= 3) {
+    setTimeout(() => {
+      alert(`You’ve had ${displayName} ${count + 1} times recently — how about switching things up for lunch today? 🌱`);
+    }, 100);
+  } else {
+    setTimeout(() => {
+      alert('Added to lunch history 📅');
+    }, 100);
+  }
 }
 

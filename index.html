@@ -24,7 +24,7 @@
 
   <header>
     <h1>🥗 Lunch? Aha!</h1>
-    <p><em>Your personal lunch companion</em></p>
+    <p><em>The quiet genius behind your next great bite.</em></p>
   </header>
 
   <!-- ✨ Welcome Section / Purpose -->
@@ -39,15 +39,31 @@
  </div>
 </section>
 
-  <!-- 🔍 Filter Guide Section -->
-  <section class="filter-guide">
+<!-- 🕒 Lunch History Feature Introduction -->
+<section id="lunch-history" class="lunch-history-intro">
+  <h2>Déjà Chew? 🧠: Lunches You’ve Logged </h2>
+  <p>
+    Introducing your new lunch memory! <strong><a href="#meal-history">📅Lunch History</a></strong> keeps track of your last 5 lunches—so you don’t accidentally eat the same thing three times this week (yes, it happens).
+  </p>
+  <p>
+    If we spot a pattern, you’ll get a friendly nudge to mix it up—for balance, variety, and a bit more joy at lunchtime.
+  </p>
+  <p>
+    Perfect for busy minds and back-to-back meetings. No more “Wait… what did I eat yesterday?” moments.
+  </p>
+  <p><em>Because lunch should be a break, not a brain teaser.</em></p>
+  <p><strong>Click the "Eat This Today!" button to add a meal to your history.</strong></p>
+</section>
+
+  
+  <!-- 🥗 Meal History Intro Section -->
+    <section class="filter-guide">
     <h2>Filter Guide 🍽️</h2>
-    <p style="text-align:center; margin: 0 0 10px 0; color:#a05a00; font-size:1.05rem; font-family:'Rubik', Arial, sans-serif;">Use this guide to filter meals by your diet, cravings, budget, and favorite bases — all in one bite!</p>
     <ul>
-      <li><strong>🥗 Dietary Needs:</strong> Vegetarian, Vegan, Halal, Gluten-Free, Lactose-Free</li>
+      <li><strong>🥗 Dietary Needs:</strong> Vegetarian, Halal, Gluten-Free, etc.</li>
       <li><strong>🍚 Meal Base:</strong> Rice, Noodles, Bread/Wraps, Salad</li>
       <li><strong>💸 Budget:</strong> $, $$, $$$</li>
-      <li><strong>🔥 Crave Mode:</strong> Spicy, Soupy, Sweet, Sour, Savoury</li>
+      <li><strong>🔥 Crave Mode:</strong> Spicy, Sweet, Soupy, Savoury, Sour</li>
     </ul>
   </section>
 
@@ -130,24 +146,74 @@
   
 </style>
 
-  <section class="meal-history">
-    <h2 onclick="toggleHistory()">📅 Lunch History <span id="toggle-icon">▼</span></h2>
-    <p style="text-align:center; margin: 0 0 10px 0; color:#a05a00; font-size:1.05rem; font-family:'Rubik', Arial, sans-serif;">Here are your last five lunches — keep it fresh and balanced by switching things up!</p>
-    <div id="history-content" style="display: none;">
-      <ul id="meal-log">
-        <li>Mon: Chicken Rice 🍗</li>
-        <li>Tue: Vegetarian Salad 🥗</li>
-        <li>Wed: Laksa 🍜</li>
-        <li>Thu: Mala Hotpot 🌶️</li> 
-        <li>Fri: Sushi Bento 🍣</li>
-      </ul>
-      <p><em>Tip:</em> You’ve had spicy 3 times this week — maybe try something refreshing today!</p>
-    </div>
-  </section>
+<section id="meal-history" class="meal-history">
+  <h2 onclick="toggleHistory()">📅Lunch History <span id="toggle-icon">▼</span></h2>
+  <p style="text-align: center;">Here are your last five lunches - keep it fresh and balanced by switching things up!</p>
+  <div id="history-content" style="display: none;">
+    <table class="meal-history-table">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Date</th>
+          <th>Meal</th>
+        </tr>
+      </thead>
+      <tbody id="meal-log-table">
+        <!-- Populated by JS -->
+      </tbody>
+    </table>
+    <p id="meal-tip"><em>Tip:</em> Your variety tip will show here!</p>
+  </div>
+</section>
 
-<footer style="background:#fff5e1; color:#a05a00; text-align:center; padding:18px 10px 16px 10px; font-size:0.8rem; border-top:1px solid #ffe0b2; margin-top:40px;">
-  <strong>Disclaimer:</strong><br>
-  This website is created for learning purposes only. The information provided here should not be considered professional advice. Please note that we make no guarantees regarding the accuracy, completeness, or reliability of the contents of this website. Any actions you take based on the contents of this website are at your own risk. We are not liable for any losses or damages incurred from the use of this website.
+
+  <style>
+    .meal-history-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0;
+      background: #fff9f3;
+      box-shadow: 0 2px 8px rgba(200,170,120,0.07);
+      font-family: 'Rubik', Arial, sans-serif;
+    }
+    .meal-history-table th, .meal-history-table td {
+      border: 1px solid #e0c3a0;
+      padding: 0.6em 1em;
+      text-align: left;
+      font-size: 1em;
+    }
+    .meal-history-table th {
+      background: #f8e7d2;
+      color: #7a5c2e;
+      font-weight: 600;
+    }
+    .meal-history-table td {
+      color: #5a4a2e;
+    }
+  </style>
+
+<footer class="disclaimer-footer">
+  <p><strong>Disclaimer:</strong><br>
+    This website is created for learning purposes only. The information provided here should not be considered professional advice. Please note that we make no guarantees regarding the accuracy, completeness, or reliability of the contents of this website. Any actions you take based on the contents of this website are at your own risk. We are not liable for any losses or damages incurred from the use of this website.
+  </p>
 </footer>
+<!-- Add this style block only once per page, or ensure .disclaimer-footer is styled in your main CSS -->
+<style>
+  .disclaimer-footer {
+    background: #f8e7d2;
+    color: #a05a00;
+    font-size: 0.80em;
+    text-align: center;
+    padding: 1.2em 1em 1.5em 1em;
+    border-top: 1px solid #e0c3a0;
+    margin-top: 2em;
+    font-family: 'Rubik', Arial, sans-serif;
+    letter-spacing: 0.01em;
+    box-shadow: 0 -2px 8px rgba(200, 170, 120, 0.07);
+  }
+  .disclaimer-footer strong {
+    color: #a05a00;
+  }
+</style>
 </body>
 </html>

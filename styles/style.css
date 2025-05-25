@@ -87,7 +87,7 @@ header p {
 }
 
 .filter-guide li {
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   margin-bottom: 10px;
   color: #444;
   padding-left: 10px;
@@ -115,7 +115,7 @@ header p {
 }
 
 .filter-group h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: #a05a00;
   margin-bottom: 8px;
 }
@@ -123,7 +123,7 @@ header p {
 .filters label {
   display: block;
   margin: 6px 0;
-  font-size: 1rem;
+  font-size: 1.3rem;
   cursor: pointer;
   color: #333;
 }
@@ -148,8 +148,9 @@ header p {
 /* Meal Container Styles */
 .meal-container {
   display: grid;
-  gap: 20px;
+  gap: 36px 28px; /* 36px vertical, 28px horizontal gap for clear separation */
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  padding: 12px 0 32px 0; /* extra top/bottom padding for breathing room */
 }
 
 .meal-card {
@@ -259,7 +260,7 @@ header p {
   width: 100%;
   border-collapse: collapse;
   margin: 18px 0 8px 0;
-  background: #fff8ed;
+  background: #70e721;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(255,179,71,0.10);
@@ -273,7 +274,7 @@ header p {
 
 .meal-history-table th {
   background: linear-gradient(90deg, #63c021 0%, #bcf693 100%);
-  color: #7a4a00;
+  color: #226d0a;
   font-size: 1.05rem;
   font-weight: 600;
   border-bottom: 2px solid #59ab1e;
@@ -353,12 +354,12 @@ iframe {
 /* Example color variations for different tags */
 .tag-vegetarian {
   background-color: #4CAF50; /* green */
-  border-color: #388E3C;
+  border-color: #3f9c44;
 }
 
 .tag-vegan {
-  background-color: #81C784;
-  border-color: #66BB6A;
+  background-color: #229228;
+  border-color: #0f5a13;
 }
 
 .tag-halal {
@@ -388,7 +389,7 @@ iframe {
 
 .tag-breadwraps {
   background-color: #c0694f;
-  border-color: #cb6f53ed;
+  border-color: #804432ed;
 }
 
 .tag-salad {
@@ -589,12 +590,12 @@ html {
 }
 
 .eat-today-btn {
-  background: linear-gradient(90deg, #ffb347 0%, #ffcc80 100%);
-  color: #7a4a00;
+  background: linear-gradient(90deg, #f35309 0%, #f09206 100%);
+  color: #f8f8f8;
   border: none;
   border-radius: 8px;
   padding: 10px 22px;
-  margin: 8px 0 0 0;
+  margin: 16px auto 8px auto; /* Top and bottom margin, auto on left and right for centering */
   font-size: 1.08rem;
   font-family: 'Rubik', Arial, sans-serif;
   font-weight: 600;
@@ -602,10 +603,11 @@ html {
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(255,179,71,0.10);
   transition: background 0.2s, transform 0.1s;
+  display: block;
 }
 
 .eat-today-btn:hover, .eat-today-btn:focus {
-  background: linear-gradient(90deg, #ffa500 0%, #ffd699 100%);
+  background: linear-gradient(90deg, #ee6306 0%, #f08640 100%);
   color: #5a3200;
   transform: translateY(-2px) scale(1.03);
   outline: none;
@@ -618,7 +620,7 @@ html {
   border: none;
   border-radius: 8px;
   padding: 9px 20px;
-  margin: 18px 0 0 0;
+  margin: 16px auto 0 auto; /* Top margin and centered horizontally */
   font-size: 1.02rem;
   font-family: 'Rubik', Arial, sans-serif;
   font-weight: 500;
@@ -626,7 +628,7 @@ html {
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(255,179,71,0.10);
   transition: background 0.2s, transform 0.1s;
-  display: inline-block;
+  display: block;
 }
 
 .back-btn:hover, .back-btn:focus {
@@ -635,5 +637,81 @@ html {
   transform: translateY(-2px) scale(1.03);
   outline: none;
 }
+
+/* Find Out More button */
+.find-out-more-btn {
+  background: linear-gradient(90deg, #ffb347 0%, #ffd580 100%);
+  color: #7a4a00;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  margin: 10px 0 0 0;
+  font-size: 1.08rem;
+  font-family: 'Rubik', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255,179,71,0.10);
+  transition: background 0.2s, transform 0.1s;
+  display: inline-block;
+}
+
+.find-out-more-btn:hover, .find-out-more-btn:focus {
+  background: linear-gradient(90deg, #ffa500 0%, #ffd699 100%);
+  color: #5a3200;
+  transform: translateY(-2px) scale(1.03);
+  outline: none;
+}
+
+.primary-filters button,
+.sub-filters button,
+.buttons button {
+  font-size: 1rem;
+}
+
+.meal-card h4 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #050505;
+  margin: 12px 0 6px 0;
+  font-family: 'Rubik', Arial, sans-serif;
+}
+
+/* Lunch History Section */
+.lunch-history-intro {
+  background: #f7e9be; /* Soft blue tone for contrast */
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08); /* Slightly softer shadow */
+  font-family: 'Rubik', Arial, sans-serif;
+  color: #666666; /* Professional navy tone */
+  text-align: center; /* ✅ Center all text inside the section */
+}
+
+.lunch-history-intro h2 {
+  font-size: 2rem;
+  margin-bottom: 14px;
+  color: #f06305;
+  text-align: center; /* ✅ Center only the header */
+}
+
+.lunch-history-intro p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* lunch history hyperlink */
+.lunch-history-intro a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: #666666;
+  text-decoration-thickness: 1.1px;
+  font-weight: 600;
+}
+
+
 
 

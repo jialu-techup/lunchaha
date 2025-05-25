@@ -3,7 +3,7 @@
     "id": 1,
     "name": "SO FUN3",
     "description": "Authentic Hunan-style handmade rice noodles — enjoy them dry or in a hearty soup, packed with bold, spicy flavors.",
-    "diet": ["vegetarian","halal"],
+    "diet": ["vegetarian","lactose-free"],
     "base": ["noodles","rice"],
     "crave":["spicy","soupy"],
     "budget": "$",
@@ -30,12 +30,12 @@
 
     {
     "id": 3,
-    "name": "McDonald's ARC",
+    "name": "McDonalds ARC",
     "description": "Classic, long-running fast-food chain known for its burgers & fries.",
     "diet": [],
     "base": ["bread/wraps"],
     "budget": "$",
-    "crave":["savoury"],
+    "crave":["savoury","sweet"],
     "image": "assets/images/icons/mcdonalds.png",
     "location": "Alexandra Retail Centre (ARC) #01-25",
     "mapLink": "https://g.co/kgs/i3dWyEd",
@@ -162,6 +162,21 @@
     "mapLink": "https://g.co/kgs/5sgeZGj",
     "rating": 3.1,
     "reason":"Craving crunch? Dive into some golden, crispy fried finger food—then balance it out with a fresh, zesty dip. Because life’s all about delicious contrasts! 😇🍟✨"
+    },
+
+        {
+    "id": 12,
+    "name": "Super Thai by Soi Aroy",
+    "description": "Super Thai is brought to you by the same group that crafted Soi Aroy, the #1 Ranked Thai Restaurant in Singapore on TripAdvisor. Experience our extended menu with new signatures in a comfortable modern environment that exudes a little charm of Thailand.",
+    "diet": [],
+    "base": ["rice","noodles"],
+    "budget": "$",
+    "crave":["spicy","savoury","sweet"],
+    "image": "assets/images/icons/superthai.jpg",
+    "location": "91 Pasir Panjang Rd, Singapore 118512",
+    "mapLink": "https://g.co/kgs/hroxmrF",
+    "rating": 4.8,
+    "reason":"When you're in the mood for bold, bright flavors—think spicy, sour, and everything in between—Thai food delivers.🌶️🍋🥵"
     }
 
 ]

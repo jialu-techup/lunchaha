@@ -11,11 +11,13 @@
 </head>
 <body>
   <header>
-    <h1>🍽️ Lunch? Aha!</h1>
+    <h1>🥗 Lunch? Aha!</h1>
+    <p><em>The quiet genius behind your next great bite.</em></p>
   </header>
 
-  <section id="meal-detail" class="meal-card" style="margin: 20px auto; max-width: 600px;">
-    <h2 id="meal-name"></h2>
+  <section id="meal-detail" class="meal-card" style="margin: 40px auto 20px auto; max-width: 600px; padding-top: 32px; position: relative;">
+    <div id="meal-nudge" style="position: relative; float: right; margin-top: 0; margin-bottom: 0; margin-left: 16px;"></div>
+    <h2 id="meal-name" style="display: inline-block; vertical-align: middle; margin-top: 0;"></h2>
     <img id="meal-img" src="" alt="" style="width: 100%; border-radius: 12px;">
     <p id="meal-desc"></p>
     <p><strong>Why this pick?</strong> <span id="meal-reason"></span></p>
@@ -26,14 +28,51 @@
       <button class="view-map-btn" id="detail-view-map">📍 View Map</button>
       <button class="view-map-btn" id="detail-share">📤 Share</button>
     </div>
+    <button class="eat-today-btn" id="eat-today-btn">🍽️ Eat This Today!</button>
     <button class="back-btn" onclick="window.history.back()">⬅ Back</button>
   </section>
 
-  <footer style="background:#fff5e1; color:#a05a00; text-align:center; padding:18px 10px 16px 10px; font-size:0.8rem; border-top:1px solid #ffe0b2; margin-top:40px;">
-    <strong>Disclaimer:</strong><br>
-    This website is created for learning purposes only. The information provided here should not be considered professional advice. Please note that we make no guarantees regarding the accuracy, completeness, or reliability of the contents of this website. Any actions you take based on the contents of this website are at your own risk. We are not liable for any losses or damages incurred from the use of this website.
+  <footer class="disclaimer-footer">
+    <p><strong>Disclaimer:</strong><br>
+      This website is created for learning purposes only. The information provided here should not be considered professional advice. Please note that we make no guarantees regarding the accuracy, completeness, or reliability of the contents of this website. Any actions you take based on the contents of this website are at your own risk. We are not liable for any losses or damages incurred from the use of this website.
+    </p>
   </footer>
 
+  <style>
+  .disclaimer-footer {
+    background: #f8e7d2;
+    color: #a05a00;
+    font-size: 0.80em;
+    text-align: center;
+    padding: 1.2em 1em 1.5em 1em;
+    border-top: 1px solid #e0c3a0;
+    margin-top: 2em;
+    font-family: 'Rubik', Arial, sans-serif;
+    letter-spacing: 0.01em;
+    box-shadow: 0 -2px 8px rgba(200, 170, 120, 0.07);
+  }
+  .disclaimer-footer strong {
+    color: #a05a00;
+  }
+</style>
   <script src="../scripts/meal-detail.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const eatBtn = document.getElementById('eat-today-btn');
+      if (eatBtn) {
+        eatBtn.addEventListener('click', function() {
+          // Get meal name from the page
+          const mealName = document.getElementById('meal-name').textContent;
+          if (mealName) {
+            // Use the same tracking logic as main.js
+            const history = JSON.parse(localStorage.getItem('mealHistory')) || [];
+            history.push({ name: mealName, date: new Date().toISOString() });
+            localStorage.setItem('mealHistory', JSON.stringify(history));
+            alert('Added to meal history🍱');
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
