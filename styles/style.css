@@ -18,7 +18,7 @@ header {
 
 header h1 {
   font-family: 'Pacifico', cursive;
-  font-size: 3rem;
+  font-size: 4rem;
   margin: 0;
   color: #fff;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
@@ -167,7 +167,7 @@ header p {
 }
 
 .meal-card img {
-  width: 80%;
+  width: 60%;
   border-radius: 10px;
   margin-bottom: 10px;
   display: block;
@@ -308,7 +308,7 @@ iframe {
 
 .image-wrapper {
   position: relative;
-  width: 85%;
+  width: 55%;
   margin: 0 auto; /* ✅ This centers it horizontally */
   border-radius: 8px;
   overflow: hidden;
@@ -367,14 +367,15 @@ iframe {
   border-color: #1565C0;
 }
 
-.tag-glutenfree {
+.tag-gluten-free {
   background-color: #f19c51; /* green */
   border-color: rgb(247, 132, 31);
 }
 
-.tag-lactosefree {
-  background-color: #fed983; /* beige */
-  border-color: #fccd5f;
+.tag-lactose-free {
+  background-color: #fff9c5; /* beige */
+  border-color: #fffb05;
+  color: rgb(0, 0, 0);
 }
 
 .tag-rice {
@@ -710,6 +711,28 @@ html {
   text-decoration-color: #666666;
   text-decoration-thickness: 1.1px;
   font-weight: 600;
+}
+
+/* Icon Gallery Styles */
+.icon-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin: 28px 0 18px 0;
+}
+.icon-img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(200,170,120,0.13);
+  background: #fffbe0;
+  transition: transform 0.18s;
+}
+.icon-img:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 4px 16px rgba(200,170,120,0.18);
 }
 
 

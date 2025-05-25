@@ -32,7 +32,7 @@
     "id": 3,
     "name": "McDonalds ARC",
     "description": "Classic, long-running fast-food chain known for its burgers & fries.",
-    "diet": [],
+    "diet": ["halal"],
     "base": ["bread/wraps"],
     "budget": "$",
     "crave":["savoury","sweet"],
@@ -164,7 +164,7 @@
     "reason":"Craving crunch? Dive into some golden, crispy fried finger food—then balance it out with a fresh, zesty dip. Because life’s all about delicious contrasts! 😇🍟✨"
     },
 
-        {
+    {
     "id": 12,
     "name": "Super Thai by Soi Aroy",
     "description": "Super Thai is brought to you by the same group that crafted Soi Aroy, the #1 Ranked Thai Restaurant in Singapore on TripAdvisor. Experience our extended menu with new signatures in a comfortable modern environment that exudes a little charm of Thailand.",
@@ -177,7 +177,36 @@
     "mapLink": "https://g.co/kgs/hroxmrF",
     "rating": 4.8,
     "reason":"When you're in the mood for bold, bright flavors—think spicy, sour, and everything in between—Thai food delivers.🌶️🍋🥵"
-    }
+    },
 
+    {
+    "id": 13,
+    "name": "Subway",
+    "description": "Casual counter-serve chain for build-your-own sandwiches & salads, with health-conscious options.",
+    "diet": ["vegetarian","vegan","gluten-free","halal"],
+    "base": ["bread/wraps","salad"],
+    "budget": "$",
+    "crave":["savoury","sweet"],
+    "image": "assets/images/icons/subway.jpg",
+    "location": "40 Pasir Panjang Rd, #02-34 Mapletree Business City II, Singapore 117383",
+    "mapLink": "https://g.co/kgs/L21JFxJ",
+    "rating": 3.9,
+    "reason":"Craving something personalized and well-balanced? Subway lets you build the sandwich that fits your taste and lifestyle. 🥪🥗✨"
+    },
+
+    {
+    "id": 13,
+    "name": "Wok Hey",
+    "description": "Casual counter-serve chain for build-your-own sandwiches & salads, with health-conscious options.",
+    "diet": ["vegetarian","vegan","halal","gluten-free","lactose-free"],
+    "base": ["rice","noodles"],
+    "budget": "$",
+    "crave":["savoury","spicy"],
+    "image": "assets/images/icons/wokhey.jpg",
+    "location": "Alexandra Retail Centre (ARC) #01-12",
+    "mapLink": "https://g.co/kgs/ZUXypbd",
+    "rating": 3.7,
+    "reason":"In the mood for fast, fiery Wok Hey? Stir-fried satisfaction in every bite! 🍜🔥"
+    }
 ]
 
