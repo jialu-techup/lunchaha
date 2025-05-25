@@ -183,7 +183,7 @@
     "id": 13,
     "name": "Subway",
     "description": "Casual counter-serve chain for build-your-own sandwiches & salads, with health-conscious options.",
-    "diet": ["vegetarian","vegan","gluten-free","halal"],
+    "diet": ["vegetarian","vegan","halal","gluten-free"],
     "base": ["bread/wraps","salad"],
     "budget": "$",
     "crave":["savoury","sweet"],

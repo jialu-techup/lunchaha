@@ -680,7 +680,7 @@ html {
 
 /* Lunch History Section */
 .lunch-history-intro {
-  background: #f7e9be; /* Soft blue tone for contrast */
+  background: linear-gradient(135deg, #fddaad 0%, #eaffd0 100%);
   padding: 25px;
   margin-bottom: 30px;
   border-radius: 14px;
