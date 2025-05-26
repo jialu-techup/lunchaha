@@ -171,7 +171,7 @@
     "diet": [],
     "base": ["rice","noodles"],
     "budget": "$",
-    "crave":["spicy","savoury","sweet"],
+    "crave":["spicy","sweet","sour","savoury"],
     "image": "assets/images/icons/superthai.jpg",
     "location": "91 Pasir Panjang Rd, Singapore 118512",
     "mapLink": "https://g.co/kgs/hroxmrF",
@@ -195,18 +195,20 @@
     },
 
     {
-    "id": 13,
-    "name": "Wok Hey",
-    "description": "Casual counter-serve chain for build-your-own sandwiches & salads, with health-conscious options.",
-    "diet": ["vegetarian","vegan","halal","gluten-free","lactose-free"],
+    "id": 14,
+    "name": "Chuan Taizi Mala Tang",
+    "description": "Our unique taste and variety of hotpot flavors, including original Malatang, Sichuan-style Malatang, Mala hotpot, stir-fry with garlic, tom yum soup, and tomato soup, are the perfect fusion of tradition and innovation. ",
+    "diet": [],
     "base": ["rice","noodles"],
     "budget": "$",
-    "crave":["spicy","savoury"],
-    "image": "assets/images/icons/wokhey.jpg",
-    "location": "Alexandra Retail Centre (ARC) #01-12",
-    "mapLink": "https://g.co/kgs/ZUXypbd",
-    "rating": 3.7,
-    "reason":"In the mood for fast, fiery Wok Hey? Stir-fried satisfaction in every bite! 🍜🔥"
+    "crave":["spicy","soupy","sour"],
+    "image": "assets/images/icons/malatang.jpg",
+    "location": "Alexandra Retail Centre (ARC) #02-19",
+    "mapLink": "https://g.co/kgs/JJS3LtE",
+    "rating": 4.7,
+    "reason":"Craving that spicy tingle? Dive into a bowl of bold, brothy Mala Tang magic! 🌶️🥢"
     }
+
+
 ]
 

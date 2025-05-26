@@ -414,8 +414,9 @@ iframe {
 }
 
 .tag-sour {
-  background-color: #f6d464;
-  border-color: #f7c316;
+  background-color: #fce308;
+  border-color: #fdcf01;
+  color: rgb(0, 0, 0);
 }
 
 .tag-savoury {
