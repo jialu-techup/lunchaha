@@ -3,29 +3,29 @@
     "id": 1,
     "name": "SO FUN3",
     "description": "Authentic Hunan-style handmade rice noodles — enjoy them dry or in a hearty soup, packed with bold, spicy flavors.",
-    "diet": ["vegetarian","lactose-free"],
-    "base": ["noodles","rice"],
+    "diet": ["vegetarian"],
+    "base": ["rice","noodles"],
     "crave":["spicy","soupy"],
     "budget": "$",
     "image": "assets/images/icons/sofun3.jpg",
     "location": "Alexandra Retail Centre (ARC) #01-01",
     "mapLink": "https://g.co/kgs/qF1hXJb",
     "rating": 4.7,
-    "reason":"if you are craving some chinese cuisine, specifically noodles"
+    "reason":"if you are craving some chinese cuisine, specifically noodles or rice! 🍜🍚"
   },
   {
     "id": 2,
     "name": "The Green Bar",
     "description": "Our very own collection of fresh mouthwatering honest-to-goodness, well crafted gourmet superfood salad recipes for all to enjoy",
     "diet": ["vegetarian", "vegan","gluten-free"],
-    "base": ["salad", "bread/wraps"],
+    "base": [ "bread/wraps","salad"],
     "budget": "$$",
     "crave":["savoury"],
     "image": "assets/images/icons/thegreenbar.jpg",
     "location": "Alexandra Retail Centre (ARC) #02-12",
     "mapLink": "https://g.co/kgs/kaQp5rc",
     "rating": 4.3,
-    "reason":"if you are craving something healthy"
+    "reason":"if you are craving something healthy and light, like a salad or a wrap! 🥗🌯"
   },
 
     {
@@ -33,14 +33,14 @@
     "name": "McDonalds ARC",
     "description": "Classic, long-running fast-food chain known for its burgers & fries.",
     "diet": ["halal"],
-    "base": ["bread/wraps"],
+    "base": ["bread/wraps","salad"],
     "budget": "$",
-    "crave":["savoury","sweet"],
+    "crave":["sweet","savoury"],
     "image": "assets/images/icons/mcdonalds.png",
     "location": "Alexandra Retail Centre (ARC) #01-25",
     "mapLink": "https://g.co/kgs/i3dWyEd",
     "rating": 4.2,
-    "reason":"if decide today should be your cheat day! :P"
+    "reason":"if decide today should be your cheat day! 🍔🍟"
   },
 
     {
@@ -55,7 +55,7 @@
     "location": "Alexandra Retail Centre (ARC) #02-42",
     "mapLink": "https://g.co/kgs/huzwYdY",
     "rating": 4.8,
-    "reason":"if today is a rainy day and you feel like having something soupy!"
+    "reason":"if today is a rainy day and you feel like having something soupy! 🥣🌧️"
   },
 
     {
@@ -70,7 +70,7 @@
     "location": "Alexandra Retail Centre (ARC) #02-02",
     "mapLink": "https://g.co/kgs/3oE8Eyt",
     "rating": 4.3,
-    "reason":"if variety is what you are looking for!"
+    "reason":"if variety and chinese cuisine is what you are looking for! 🍚🥢"
     },
 
 
@@ -86,7 +86,7 @@
     "location": "Alexandra Retail Centre (ARC) #01-11",
     "mapLink": "https://g.co/kgs/KjVwFBZ",
     "rating": 4.3,
-    "reason":"if you are looking for something easy to eat"
+    "reason":"if you are looking for something easy to eat and filling, like a burrito or a kebab! 🌯🥗"
     },
 
     {
@@ -96,12 +96,12 @@
     "diet": [],
     "base": ["rice"],
     "budget": "$$$",
-    "crave":["spicy","savoury","soupy"],
+    "crave":["spicy","soupy","savoury"],
     "image": "assets/images/icons/sbcd.jpg",
     "location": "Alexandra Retail Centre (ARC) #02-21",
     "mapLink": "https://g.co/kgs/YxgsBXE",
     "rating": 4.0,
-    "reason":"if you've recently watch some kdrama and wants to eat like your korean oppa!"
+    "reason":"if you've recently watch some kdrama and wants to eat like your korean oppa! 🥘🇰🇷"
     },
 
     {
@@ -116,14 +116,14 @@
     "location": "Alexandra Retail Centre (ARC) #02-22",
     "mapLink": "https://g.co/kgs/8TCGupo",
     "rating": 4.3,
-    "reason":"if you are craving some comforting Japanese eats and a little foodie therapy"
+    "reason":"if you are craving some comforting Japanese eats and a little foodie therapy 🍣🍜"
     },
 
     {
     "id": 9,
     "name": "MK Levure Naturelle",
     "description": "A well-known bakery and pastry branding established 15 years with 15 outlets located in Singapore, is also well versed with the knowledge of food quality.",
-    "diet": [],
+    "diet": ["vegetarian"],
     "base": ["bread/wraps"],
     "budget": "$",
     "crave":["sweet","savoury"],
@@ -131,7 +131,7 @@
     "location": "Alexandra Retail Centre (ARC) #01-08",
     "mapLink": "https://g.co/kgs/5uCNCPY",
     "rating": 3.2,
-    "reason":"if you are craving some light snacks, be it sweet/savoury, this is it!"
+    "reason":"if you are craving some light snacks, be it sweet/savoury, this is it! 🍪"
     },
 
     {
@@ -186,7 +186,7 @@
     "diet": ["vegetarian","vegan","halal","gluten-free"],
     "base": ["bread/wraps","salad"],
     "budget": "$",
-    "crave":["savoury","sweet"],
+    "crave":["sweet","savoury"],
     "image": "assets/images/icons/subway.jpg",
     "location": "40 Pasir Panjang Rd, #02-34 Mapletree Business City II, Singapore 117383",
     "mapLink": "https://g.co/kgs/L21JFxJ",
@@ -201,7 +201,7 @@
     "diet": ["vegetarian","vegan","halal","gluten-free","lactose-free"],
     "base": ["rice","noodles"],
     "budget": "$",
-    "crave":["savoury","spicy"],
+    "crave":["spicy","savoury"],
     "image": "assets/images/icons/wokhey.jpg",
     "location": "Alexandra Retail Centre (ARC) #01-12",
     "mapLink": "https://g.co/kgs/ZUXypbd",
