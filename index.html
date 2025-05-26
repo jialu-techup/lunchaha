@@ -25,7 +25,7 @@
   <header>
     <h1>🥗 Lunch? Aha!</h1>
     <p><em>The quiet genius behind your next great bite.</em></p>
-    <p>📍MBC Edition🏢</p>
+    <p>-MBC Edition-</p>
   </header>
 
   <!-- Add Icon Gallery Section -->
@@ -156,6 +156,16 @@
   <div id="meal-container"></div>
 
   <script src="scripts/main.js"></script>
+  <script>
+    // Listen for meal history updates from other tabs/pages
+    window.addEventListener('storage', function(event) {
+      if (event.key === 'mealHistoryUpdate') {
+        if (typeof renderHistory === 'function') {
+          renderHistory();
+        }
+      }
+    });
+  </script>
 
 <style>
 
